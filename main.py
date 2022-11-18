@@ -9,5 +9,10 @@ html = """
         안녕하세요
     </div>
 """
-
 st.markdown(html, unsafe_allow_html = True)
+
+view = [100,150,30]
+view
+
+
+
