@@ -42,7 +42,7 @@ st3 = pd.read_csv('st3.csv')
 st.write(st3)
 
 #def lchart(X):
-df = pd.read_csv((st3[st3['kEname']=='거창']['number']+'.csv').values[0])
+df = pd.read_csv((st3[st3['kEname']=='군산']['number']+'.csv').values[0])
 df2 = df.groupby('Year').mean()[['tmax','tmin']]
 #lchart(location_selectbox)
 st.write(df2)
