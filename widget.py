@@ -72,11 +72,14 @@ st.area_chart(df)
 # bar chart
 st.bar_chart(df)
 # altair_chart
+chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=['a', 'b', 'c'])
 
+c = alt.Chart(chart_data).mark_circle().encode(
+    x='a', y='b', size='c', color='c', tooltip=['a', 'b', 'c'])
 
-c = alt.Chart(df).mark_circle().encode(
-    x='col0', y = 'col1')
-st.altair_chart(df, use_container_width=True)
+st.altair_chart(c, use_container_width=True)
 
 # vega lite chart
 st.vega_lite_chart(df)
