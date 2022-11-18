@@ -40,11 +40,11 @@ st.header('Donut chart')
 st.plotly_chart(fig)
 st3 = pd.read_csv('st3.csv')
 
-def lchart(X):
-    df = pd.read_csv(st3[st3['kEname']==X]['number']+'.csv')
-    df2 = df.groupby('Year').mean()[['tmax','tmin']]
-lchart(location_selectbox)
-st.write(df2)
+#def lchart(X):
+df = pd.read_csv(st3[st3['kEname']=='강릉']['number']+'.csv')
+#    df2 = df.groupby('Year').mean()[['tmax','tmin']]
+#lchart(location_selectbox)
+st.write(df)
 #    st.line_chart(x = chart_df.index, y = chart_df)
 
 #lchart(location_selectbox)
