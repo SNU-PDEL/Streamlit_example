@@ -44,7 +44,7 @@ st.write(st3)
 def lchart(X):
     df = pd.read_csv((st3[st3['kEname']=='X']['number']+'.csv').values[0])
     df2 = df.groupby('Year').mean()[['tmax','tmin']]
-#lchart(location_selectbox)
+lchart(location_selectbox)
 st.write(df2)
 #    st.line_chart(x = chart_df.index, y = chart_df)
 
