@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import altair as alt
 import plotly.graph_objects as go
+import plotly.express as px
 
 st.title('Visualization homework')
 st.sidebar.slider('년도',1980,2020)
