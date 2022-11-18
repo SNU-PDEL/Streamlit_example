@@ -82,7 +82,15 @@ c = alt.Chart(chart_data).mark_circle().encode(
 st.altair_chart(c, use_container_width=True)
 
 # vega lite chart
-st.vega_lite_chart(df)
+st.vega_lite_chart(chart_data, {
+    'mark': {'type': 'circle', 'tooltip': True},
+    'encoding': {
+        'x': {'field': 'a', 'type': 'quantitative'},
+        'y': {'field': 'b', 'type': 'quantitative'},
+        'size': {'field': 'c', 'type': 'quantitative'},
+        'color': {'field': 'c', 'type': 'quantitative'},
+    },
+})
 # plotly chart
 st.plotly_chart(df)
 # bokeh chart
