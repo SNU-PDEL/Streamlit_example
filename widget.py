@@ -2,6 +2,23 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+# 타이틀
+st.title('Title')
+# 헤더
+st.header('Header')
+# 서브헤더
+st.subheader('subheader')
+
+# 텍스트 작성
+st.write('Write Something')
+
+# 버튼 만들기
+if st.button('click button'):
+    st.write('Data Loading..')
+# 체크 박스 만들기
+checkbox_btn = st.checkbox('Checkbox Button')
+if checkbox_btn:
+    st.write('Great!')
 # 라디오 버튼 만들기
 st.title('Visualization Homework')
 selected_item = st.radio('Radio Part', ('A','B','C'))
