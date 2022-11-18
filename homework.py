@@ -16,3 +16,8 @@ elif selected_item == 'C':
 option = st.selectbox('Please select in selectbox!',
                         ('kyle', 'seongyun', 'zzsza'))
 st.write('You selected :', option)
+
+# 다중 선택 박스 만들기
+multi_select = st.multiselect('Please select something in multi selectbox!',
+                                ['A','B','C','D'])
+st.write('You selected:', multi_select)
