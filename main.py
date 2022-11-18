@@ -4,7 +4,6 @@ import numpy as np
 import altair as alt
 import plotly.graph_objects as go
 import plotly.express as px
-import matplotlib.pyplot as plt
 
 
 st.title('Visualization homework')
@@ -34,10 +33,7 @@ data_frame = {'score' : 70,
 fig = px.pie(
     hole = 0.9,
     labels = data_frame.values(),
+    values= data_frame.values(),
     names = data_frame.keys())
 st.header('Donut chart')
 st.plotly_chart(fig)
-
-name = ['score','nonscore']
-score = [70,30]
-plt.pie(score, labels = name, pctdistance=0.9)
