@@ -66,3 +66,23 @@ st.table(df)
 
 # line chart
 st.line_chart(df)
+# area chart
+st.area_chart(df)
+# bar chart
+st.bar_chart(df)
+# pyplot
+st.pyplot(df)
+# altair_chart
+st.altair_chart(df)
+# vega lite chart
+st.vega_lite_chart(df)
+# plotly chart
+st.plotly_chart(df)
+# bokeh chart
+st.bokeh_chart(df)
+# pydeck chart
+st.pydeck_chart(df)
+# graphviz chart
+st.graphviz_chart(df)
+# map
+st.map(df)
