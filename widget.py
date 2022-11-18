@@ -43,5 +43,5 @@ st.write('You selected:', multi_select)
 values = st.slider('Select a range of values', 0.0, 100.0, (25.0, 75.0))
 st.write('Values:', values)
 
-# 텍스트 데이터 입력
-st.text_input('Movie title', 'Life of pie')
+# 텍스트 데이터 입력창
+st.text_input('Movie title', '')
