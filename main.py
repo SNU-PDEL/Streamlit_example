@@ -10,9 +10,9 @@ cultiva_selectbox = st.sidebar.selectbox('작물',('사과','포도','가지','�
 if st.sidebar.button('Custom'):
     with st.form(key = 'Form1'):
         with st.sidebar:  
-            st.slider('육묘 기간',1,12, (1,12))
+            st.slider('육묘 기간',1,12, (4,9))
             st.slider('육묘 적정 기온', 10,40,(20,30))
-            st.slider('생육 기간', 1,12, (1,12))
+            st.slider('생육 기간', 1,12, (4,9))
             st.slider('생육 적정 기온', 10,40,(20,30))
             submitted1 = st.form_submit_button(label = 'submit')
 
