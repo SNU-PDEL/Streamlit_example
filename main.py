@@ -12,5 +12,6 @@ if st.sidebar.button('Custom'):
     st.sidebar.selectbox('육묘 끝 월',('1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'))
 
 st.slider('Select a Year', 1980, 2020)
-df2 = pd.DataFrame({'lat': [37,35], 'lon' : [127,128]})
-st.map(df2)
+with col1:
+    df2 = pd.DataFrame({'lat': [37,35], 'lon' : [127,128]})
+    st.map(df2)
