@@ -4,6 +4,6 @@ import numpy as np
 import altair as alt
 
 st.title('Visualization homework')
-add_selectbox = st.sidebar.selectbox('왼쪽 사이드바 select box',('A','B','C'))
-
-
+location_selectbox = st.sidebar.selectbox('시군구',('A','B','C'))
+cultiva_selectbox = st.sidebar.selectbox('작물',('사과','포도','가지','멜론','방울토마토','배추','브로콜리','상추','양배추','오이','참외','토마토','파프리카','호박','고구마','콩'))
+custom_button = st.sidebar.button('Custom')
