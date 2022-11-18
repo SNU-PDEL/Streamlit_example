@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 # 타이틀
 st.title('Title')
@@ -70,6 +71,8 @@ st.line_chart(df)
 st.area_chart(df)
 # bar chart
 st.bar_chart(df)
+# pyplot
+st.pyplot(df)
 # altair_chart
 st.altair_chart(df)
 # vega lite chart
