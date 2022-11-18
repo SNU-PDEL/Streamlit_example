@@ -105,20 +105,22 @@ st.vega_lite_chart(chart_data, {
 #st.plotly_chart(fig, use_container_width=True)
 
 # bokeh chart
-x = [1, 2, 3, 4, 5]
-y = [6, 7, 2, 4, 5]
+#x = [1, 2, 3, 4, 5]
+#y = [6, 7, 2, 4, 5]
+#p = figure(
+#    title='simple line example',
+#    x_axis_label='x',
+#    y_axis_label='y')
+#p.line(x, y, legend_label='Trend', line_width=2)
+#st.bokeh_chart(p, use_container_width=True)
 
-p = figure(
-    title='simple line example',
-    x_axis_label='x',
-    y_axis_label='y')
-
-p.line(x, y, legend_label='Trend', line_width=2)
-
-st.bokeh_chart(p, use_container_width=True)
 # pydeck chart
-st.pydeck_chart(df)
+#st.pydeck_chart(df)
 # graphviz chart
-st.graphviz_chart(df)
+#st.graphviz_chart(df)
 # map
-st.map(df)
+data = pd.DataFrame(
+    np.random.randn(1000, 2) / [50,50] + [37.76, -122.4]
+    columns = ['lat','lon']
+)
+st.map(data)
