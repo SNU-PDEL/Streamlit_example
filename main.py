@@ -18,5 +18,7 @@ view
 st.write('## bar chart')
 st.bar_chart(view)
 
+col1, col2 = st.columns([1,4])
+
 
 
