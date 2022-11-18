@@ -63,3 +63,6 @@ st.dataframe(df. style.highlight_max(axis = 0))
 
 st.write('st.table api')
 st.table(df)
+
+# line chart
+st.line_chart(df)
