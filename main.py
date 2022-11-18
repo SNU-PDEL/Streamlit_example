@@ -47,5 +47,5 @@ df2 = df.groupby('Year').mean()[['tmax','tmin']]
 #lchart(location_selectbox)
 st.write(df2)
 #    st.line_chart(x = chart_df.index, y = chart_df)
-
+st.line_chart(df2)
 #lchart(location_selectbox)
