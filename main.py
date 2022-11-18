@@ -12,8 +12,7 @@ if st.sidebar.button('Custom'):
         with st.sidebar:  
             st.slider('육묘 기간',1,12, (1,12))
             st.slider('육묘 적정 기온', 10,40,(20,30))
-            st.selectbox('생육 시작 월',('1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'))
-            st.selectbox('생육 끝 월',('1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'))
+            st.slider('생육 기간', 1,12, (1,12))
             st.slider('생육 적정 기온', 10,40,(20,30))
             submitted1 = st.form_submit_button(label = 'submit')
 
