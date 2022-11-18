@@ -72,7 +72,11 @@ st.area_chart(df)
 # bar chart
 st.bar_chart(df)
 # altair_chart
+
 st.altair_chart(df)
+c = alt.Chart(df).mark_circle().encode(
+    x='col0', y = 'col1')
+
 # vega lite chart
 st.vega_lite_chart(df)
 # plotly chart
