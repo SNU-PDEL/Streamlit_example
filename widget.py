@@ -71,8 +71,6 @@ st.line_chart(df)
 st.area_chart(df)
 # bar chart
 st.bar_chart(df)
-# pyplot
-st.pyplot(df)
 # altair_chart
 st.altair_chart(df)
 # vega lite chart
