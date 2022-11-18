@@ -7,7 +7,7 @@ st.title('Visualization homework')
 location_selectbox = st.sidebar.selectbox('시군구',('A','B','C'))
 cultiva_selectbox = st.sidebar.selectbox('작물',('사과','포도','가지','멜론','방울토마토','배추','브로콜리','상추','양배추','오이','참외','토마토','파프리카','호박','고구마','콩'))
 
-with st.form(key = 'columns_in_form'):
+with st.sidebar.form(key = 'columns_in_form'):
     col1_1, col1_2 = st.columns(2)
     if st.sidebar.button('Custom'):
         with col1_1:
