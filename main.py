@@ -14,5 +14,5 @@ if st.sidebar.button('Custom'):
 st.slider('Select a Year', 1980, 2020)
 col1, col2 = st.columns(2)
 with col1:
-    df2 = pd.DataFrame({'lat': [37,35], 'lon' : [127,128]})
+    df2 = pd.DataFrame({'lat': [42.187,34.355], 'lon' : [123.71945,130.502]})
     st.map(df2)
