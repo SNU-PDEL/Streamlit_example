@@ -45,3 +45,5 @@ st.write('Values:', values)
 
 # 텍스트 데이터 입력창
 st.text_input('Movie title', '')
+# 암호 데이터 입력창
+st.text_input('Password', type = 'password')
