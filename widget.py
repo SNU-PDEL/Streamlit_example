@@ -124,3 +124,9 @@ data = pd.DataFrame(
     columns = ['lat','lon']
 )
 st.map(data)
+
+# Progress 메시지
+st.success('성공')
+st.error('에러')
+st.warning('경고')
+st.info('정보')
