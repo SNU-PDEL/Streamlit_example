@@ -33,8 +33,7 @@ data_frame = {'India' : 4500,
               'America' : 500,
               'Russia' : 3200}
 fig = px.pie(
-    hole = 0.2,
-    labels = data_frame.values(),
-    names = data_frame.keys())
+    hole = 0.9,
+    labels = data_frame.values())
 st.header('Donut chart')
 st.plotly_chart(fig)
