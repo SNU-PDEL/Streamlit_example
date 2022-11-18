@@ -21,3 +21,7 @@ st.write('You selected :', option)
 multi_select = st.multiselect('Please select something in multi selectbox!',
                                 ['A','B','C','D'])
 st.write('You selected:', multi_select)
+
+# 슬라이더 만들기
+values = st.slider('Select a range of values', 0.0, 100.0, (25.0, 75.0))
+st.write('Values:', values)
