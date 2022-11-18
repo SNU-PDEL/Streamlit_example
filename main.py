@@ -29,11 +29,15 @@ with col1:
     df2 = pd.DataFrame({'lat': [42.187,34.355], 'lon' : [123.71945,130.502]})
     st.map(df2)
 
-data_frame = {'score' : int(70),
-              'nonscore' : int(30)}
+data_frame = {'score' : 70,
+              'nonscore' : 30}
 fig = px.pie(
     hole = 0.9,
     labels = data_frame.values(),
     names = data_frame.keys())
 st.header('Donut chart')
 st.plotly_chart(fig)
+
+name = ['score','nonscore']
+score = [70,30]
+plt.pie(score, labels = name, pctdistance=0.9)
