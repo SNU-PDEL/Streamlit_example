@@ -26,3 +26,15 @@ col1, col2 = st.columns(2)
 with col1:
     df2 = pd.DataFrame({'lat': [42.187,34.355], 'lon' : [123.71945,130.502]})
     st.map(df2)
+
+data_frame = {'India' : 4500,
+              'Australia' : 2500,
+              'Japan' : 1053,
+              'America' : 500,
+              'Russia' : 3200}
+fig = px.pie(
+    hole = 0.2,
+    labels = data_frame.values(),
+    names = data_frame.keys())
+st.header('Donut chart')
+st.plotly_chart(fig)
