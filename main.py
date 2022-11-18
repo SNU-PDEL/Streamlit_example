@@ -41,7 +41,7 @@ st.plotly_chart(fig)
 st3 = pd.read_csv('st3.csv')
 st.write(st3)
 #def lchart(X):
-df = pd.read_csv(st3[st3['kEname']=='강릉']['number']+'.csv')
+df = pd.read_csv((st3[st3['kEname']=='강릉']['number']+'.csv').values[0])
 #    df2 = df.groupby('Year').mean()[['tmax','tmin']]
 #lchart(location_selectbox)
 st.write(df)
