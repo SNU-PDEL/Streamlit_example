@@ -12,6 +12,10 @@ html = """
 st.markdown(html, unsafe_allow_html = True)
 
 view = [100,150,30]
+st.write('# Youtube view')
+st.write('## raw')
+view
+st.write('## bar chart')
 st.bar_chart(view)
 
 
