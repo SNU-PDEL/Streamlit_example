@@ -14,7 +14,7 @@ with st.form(key = 'columns_in_form'):
             st.sidebar.selectbox('육묘 시작 월',('1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'))
         with col1_2:
             st.sidebar.selectbox('육묘 끝 월',('1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'))
-    submitted = st.form_submit_button('submit')
+    submitted = st.sidebar.form_submit_button('submit')
 
 st.slider('Select a Year', 1980, 2020)
 col1, col2 = st.columns(2)
