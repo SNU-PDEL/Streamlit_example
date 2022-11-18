@@ -130,3 +130,6 @@ st.success('성공')
 st.error('에러')
 st.warning('경고')
 st.info('정보')
+
+# 사이드바 추가
+add_selectbox = st.sidebar.selectbox('왼쪽 사이드바 select box',('A','B','C'))
