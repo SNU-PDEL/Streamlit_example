@@ -133,3 +133,16 @@ st.info('정보')
 
 # 사이드바 추가
 add_selectbox = st.sidebar.selectbox('왼쪽 사이드바 select box',('A','B','C'))
+
+# 레이아웃 나누기
+col1, col2, col3 = st.beta_columns(3)
+
+with col1:
+    st.header('A cat')
+with col2:
+    st.header('button')
+    if st.button('Button!!'):
+        st.write('YES')
+with col3:
+    st.header('Chart Data')
+    st.bar_chart(df)
