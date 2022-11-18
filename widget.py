@@ -48,10 +48,10 @@ st.text_input('Movie title', '')
 # 암호 데이터 입력창
 st.text_input('Password', type = 'password')
 # 숫자 데이터 입력창 
-st.number_input('Number', '')
+st.number_input('Number', '3')
 # 텍스트 여러줄 입력창
-st.text_area('multi text','')
+st.text_area('multi text','df')
 # 날짜 입력창
-st.date_input('Date','')
+st.date_input('Date','20201010')
 # 시간 입력창
-st.time_input('Time', '')
+st.time_input('Time', '1520')
