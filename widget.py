@@ -55,3 +55,11 @@ st.text_area('multi text','')
 st.date_input('Date')
 # 시간 입력창
 st.time_input('Time')
+
+# 데이터 출력
+st.write('st.dataframe api')
+df = pd.DataFrame(np.random.randn(5,2), columns = ('col %d' %i for i in range(2)))
+st.dataframe(df. style.highlight_max(axis = 0))
+
+st.write('st.table api')
+st.table(df)
