@@ -11,7 +11,7 @@ if st.sidebar.button('Custom'):
     col1_1, col1_2 = st.sidebar.columns(2)
     with col1_1:
         st.selectbox('육묘 시작 월',('1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'))
-        st.slider('육묘 적정 기온', 10, 40)
+st.sidebar.slider('육묘 적정 기온', 10, 40)
     with col1_2:
         st.selectbox('육묘 끝 월',('1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'))
 
