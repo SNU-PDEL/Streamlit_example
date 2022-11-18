@@ -10,5 +10,5 @@ col1, col2 = st.columns(2)
 if st.sidebar.button('Custom'):
     with col1:
         st.sidebar.selectbox('육묘 시작 월',('1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'))
-    with col1:
+    with col2:
         st.sidebar.selectbox('육묘 끝 월',('1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'))
