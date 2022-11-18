@@ -38,3 +38,9 @@ fig = px.pie(
     color=['White','Green'])
 st.header('Donut chart')
 st.plotly_chart(fig)
+
+def lchart(X):
+    chart_df = globals()[st3[st3['kEname']==X]['number']].groupby('Year').mean()['tmax']
+    st.line_chart(x = chart_df.index, y = chart_df)
+
+lchart(location_selectbox)
