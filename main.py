@@ -12,7 +12,7 @@ html = """
 st.markdown(html, unsafe_allow_html = True)
 
 view = [100,150,30]
-view
+st.bar_chart(view)
 
 
 
