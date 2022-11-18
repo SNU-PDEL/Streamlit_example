@@ -14,6 +14,12 @@ if st.sidebar.button('Custom'):
     with col1_2:
         st.selectbox('육묘 끝 월',('1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'))
     st.sidebar.slider('육묘 적정 기온', 10,40,(20,30))
+    col2_1, col2_2 = st.sidebar.columns(2)
+    with col2_1:
+        st.selectbox('생육 시작 월',('1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'))
+    with col2_2:
+        st.selectbox('생육 끝 월',('1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'))
+    st.sidebar.slider('생육 적정 기온', 10,40,(20,30))
 
 col1, col2 = st.columns(2)
 with col1:
