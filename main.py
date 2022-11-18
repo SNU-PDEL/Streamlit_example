@@ -38,11 +38,13 @@ fig = px.pie(
     color=['White','Green'])
 st.header('Donut chart')
 st.plotly_chart(fig)
-
 st3 = pd.read_csv('st3.csv')
-st.write(st3)
-#def lchart(X):
-#    chart_df = globals()[st3[st3['kEname']==X]['number']].groupby('Year').mean()['tmax']
+
+def lchart(X):
+    df = pd.read_csv(st3[st3['kEname']==X]['number']+'.csv')
+    df2 = df.groupby('Year').mean()[['tmax','tmin']]
+lchart(location_selectbox)
+st.write(df2)
 #    st.line_chart(x = chart_df.index, y = chart_df)
 
 #lchart(location_selectbox)
