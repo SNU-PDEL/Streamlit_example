@@ -34,6 +34,7 @@ fig = px.pie(
     hole = 0.9,
     labels = data_frame.values(),
     values= data_frame.values(),
-    names = data_frame.keys())
+    names = data_frame.keys(),
+    color=['White','Green'])
 st.header('Donut chart')
 st.plotly_chart(fig)
