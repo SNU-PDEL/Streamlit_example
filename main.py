@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import altair as alt
-
+import plotly.graph_objects as go
 
 st.title('Visualization homework')
 st.sidebar.slider('년도',1980,2020)
