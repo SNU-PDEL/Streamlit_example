@@ -47,3 +47,11 @@ st.write('Values:', values)
 st.text_input('Movie title', '')
 # 암호 데이터 입력창
 st.text_input('Password', type = 'password')
+# 숫자 데이터 입력창 
+st.number_input('Number', '')
+# 텍스트 여러줄 입력창
+st.text_area('multi text','')
+# 날짜 입력창
+st.date_input('Date','')
+# 시간 입력창
+st.time_input('Time', '')
