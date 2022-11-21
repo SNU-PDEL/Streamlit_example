@@ -124,3 +124,85 @@ for i in range(len(fruit_total.index)):
 fruit_total['new_index'] = new_index
 
 st.line_chart(fruit_total, x = 'new_index')
+
+
+################################################################
+st.subheader('40년간 생육적정온도 비교')
+df_13 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
+df_23 = df_13.groupby(['Year','Mon']).mean()
+fruit = pd.read_csv('fruit.csv', encoding = 'cp949')
+if int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']) == 0:
+    fruit23 = (df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1))/2
+elif int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']) == 1:
+    fruit23 = (df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1))/2
+elif int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']) == 2:
+    fruit23 = (df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1))/3
+else:
+    fruit23 = (df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])+2,axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1))/4
+
+fruit23['optimal tmin'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 최저기온'])
+fruit23['optimal tmax'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 최고기온'])
+
+st.line_chart(fruit2[['tmax','tmin','optimal tmin', 'optimal tmax']])
+
+####################################################################################
+
+st.subheader('40년간 생육적정온도 비교(최대값)')
+df_14 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
+df_24 = df_14.groupby(['Year','Mon']).max()
+fruit = pd.read_csv('fruit.csv', encoding = 'cp949')
+if int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']) == 0:
+    fruit34 = df_21.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1)
+    fruit34['Unnamed: 0'] = fruit34.index
+    fruit34['Mon'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])
+    fruit34 = fruit34.sort_values('Unnamed: 0')
+    fruit_total4 = fruit34.set_index(['Unnamed: 0', 'Mon'])
+elif int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']) == 1:
+    fruit34 = df_21.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1)
+    fruit34['Unnamed: 0'] = fruit34.index
+    fruit34['Mon'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])
+    fruit44 = df_21.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1)
+    fruit44['Unnamed: 0'] = fruit44.index
+    fruit44['Mon'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝'])
+    fruit54 = pd.concat([fruit34,fruit44])
+    fruit54 = fruit54.sort_values('Unnamed: 0')
+    fruit_total4 = fruit54.set_index(['Unnamed: 0', 'Mon'])
+elif int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']) == 2:
+    fruit34 = df_21.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1)
+    fruit34['Unnamed: 0'] = fruit34.index
+    fruit34['Mon'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])
+    fruit44 = df_21.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1)
+    fruit44['Unnamed: 0'] = fruit44.index
+    fruit44['Mon'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])+1
+    fruit54 = df_21.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1)
+    fruit54['Unnamed: 0'] = fruit54.index
+    fruit54['Mon'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝'])
+    fruit64 = pd.concat([fruit34,fruit44,fruit54])
+    fruit64 = fruit54.sort_values('Unnamed: 0')
+    fruit_total4 = fruit54.set_index(['Unnamed: 0', 'Mon'])
+else:
+    fruit34 = df_21.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1)
+    fruit34['Unnamed: 0'] = fruit34.index
+    fruit34['Mon'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])
+    fruit44 = df_21.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1)
+    fruit44['Unnamed: 0'] = fruit44.index
+    fruit44['Mon'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])+1
+    fruit54 = df_21.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])+2,axis = 0, level = 1)
+    fruit54['Unnamed: 0'] = fruit54.index
+    fruit54['Mon'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])+2
+    fruit64 = df_21.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1)
+    fruit64['Unnamed: 0'] = fruit64.index
+    fruit64['Mon'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝'])
+    fruit74 = pd.concat([fruit34,fruit44,fruit54,fruit64])
+    fruit74 = fruit74.sort_values('Unnamed: 0')
+    fruit_total4 = fruit74.set_index(['Unnamed: 0', 'Mon'])
+
+fruit_total4['optimal tmin'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 최저기온'])
+fruit_total4['optimal tmax'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 최고기온'])
+
+new_index4 = []
+for i in range(len(fruit_total4.index)):
+    new_index4.append(str(fruit_total4.index[i][0]) +'_' +  str(fruit_total4.index[i][1]))
+fruit_total4['new_index'] = new_index4
+
+st.line_chart(fruit_total4, x = 'new_index')
