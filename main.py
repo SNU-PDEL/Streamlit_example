@@ -36,7 +36,7 @@ fig = px.pie(
     values= data_frame.values(),
     names = data_frame.keys(),
     color=['White','Green'],
-    title = 'score')
+    text = 'score')
 st.header('Donut chart')
 st.plotly_chart(fig)
 
