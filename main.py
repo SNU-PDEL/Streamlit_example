@@ -118,4 +118,9 @@ else:
 fruit_total['optimal tmin'] = int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 최저기온'])
 fruit_total['optimal tmax'] = int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 최고기온'])
 
-st.line_chart(fruit_total)
+new_index = []
+for i in range(len(fruit_total.index)):
+    new_index.append(str(fruit_total.index[i][0]) +'_' +  str(fruit_total.index[i][1]))
+fruit_total['new_index'] = new_index
+
+st.line_chart(fruit_total, x = 'new_index')
