@@ -118,4 +118,4 @@ else:
 fruit_total['optimal tmin'] = int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 최저기온'])
 fruit_total['optimal tmax'] = int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 최고기온'])
 
-st.line_chart(fruit_total[['tmax','tmin','optimal tmin', 'optimal tmax']])
+st.line_chart(fruit_total)
