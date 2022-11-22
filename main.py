@@ -40,7 +40,7 @@ with col1_1:
     plt.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig.gca().add_artist(centre_circle)
-    plt.text(-0.,0,'70', size = 20, horizontalalignment='center', verticalalignment='center')
+    plt.text(-0.,0,data_frame['score'], size = 20, horizontalalignment='center', verticalalignment='center')
     st.pyplot(fig)
 with col1_2:
     fig2 = plt.gcf()
@@ -57,7 +57,7 @@ with col1_2:
     plt.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig3.gca().add_artist(centre_circle)
-    plt.text(-0.,0,'gdgdgd', size = 20, horizontalalignment='center', verticalalignment='center')
+    plt.text(-0.,0,data_frame['nonscore'], size = 20, horizontalalignment='center', verticalalignment='center')
     plt.title('생육', size = 15)
     st.pyplot(fig3)
 
