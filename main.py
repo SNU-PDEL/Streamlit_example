@@ -101,7 +101,7 @@ plt.plot(fruit2['optimal tmax'], color = 'lightgray')
 plt.plot(fruit2['tmax'], color = 'red')
 plt.plot(fruit2['tmin'], color = 'blue')
 
-plt.fill_between(x = fruit2.index, y1= fruit2['optimal tmin'],y2 =fruit2['tmin'], where = (fruit2['tmin'] < fruit2['optimal tmin']),  facecolor = 'red', alpha = 0.5)
+plt.fill_between(x = fruit2.index, y1= fruit2['optimal tmin'],y2 =fruit2['tmin'], where = (fruit2['tmin'] < fruit2['optimal tmin'][1980]),  facecolor = 'red', alpha = 0.5)
 plt.fill_between(x = fruit2.index, y1= fruit2['optimal tmax'],y2 =fruit2['tmax'],  facecolor = 'blue', alpha = 0.5)
 
 plt.ylim(bottom = 0)
