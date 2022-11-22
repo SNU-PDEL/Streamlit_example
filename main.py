@@ -158,7 +158,7 @@ st.subheader(cultiva_selectbox + '의 육묘 적정 기온구간과 ' + location
 heatmap = pd.read_csv('육묘_' + cultiva_selectbox + '_' + location_selectbox + '.csv')
 heatmap['cal_total'] = heatmap['cal_tmax'] + heatmap['cal_tmin']
 fig, ax = plt.subplots(figsize=(24, 20))
-im = ax.matshow(heatmap['cal_total'], cmap='Reds')
+im = ax.matshow(heatmap, cmap='Reds')
 heat = []
 for i in range(len(heatmap)):
     heat.append(str(heatmap['Mon'][i]) +'/'+ str(heatmap['Day'][i]))
