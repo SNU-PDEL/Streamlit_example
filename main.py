@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import altair as alt
 import plotly.express as px
+from PIL import Image
 
 
 st.title('Visualization homework')
@@ -205,3 +206,6 @@ for i in range(len(fruit_total4.index)):
 fruit_total4['new_index'] = new_index4
 
 st.line_chart(fruit_total4, x = 'new_index')
+
+image = Image.open('20221122_095333.png')
+st.image(image)
