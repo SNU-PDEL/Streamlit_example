@@ -134,3 +134,21 @@ plt.fill_between(x = fruit23.index, y1= fruit23['optimal tmin'],y2 =fruit23['opt
 plt.ylim(bottom = 0)
 plt.legend(['optimal tmax','optimal tmin','tmax','tmin'])
 st.pyplot(fig)
+
+
+
+
+da58 = {'A' : [1, 0, 3, 2, 4, 5, 8],
+        'B' : [1, 0, 3, 2, 4, 5, 8],
+        'C' : [7, 6, 3, 4, 5, 2, 1],
+        'D' : [3, 2, 4, 7, 6, 3, 0],
+        'E' : [6, 7, 8, 9, 10, 11, 12],
+        'F' : [2, 0, 3, 4, 6, 5, 8],
+       }
+df58 = pd.DataFrame(da58, columns=sorted(data.keys()))
+fig, ax = plt.subplots(figsize=(24, 20))
+im = ax.matshow(df, cmap='viridis')
+ax.grid(False)
+ax.set_title("Correlation of Features")
+fig.colorbar(im)
+st.pyplot(fig)
