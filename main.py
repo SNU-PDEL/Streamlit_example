@@ -74,10 +74,8 @@ df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').value
 df2 = df.groupby('Year').max()[['tmax']]
 df3 = df.groupby('Year').min()[['tmin']]
 df4 = pd.concat([df2,df3], axis = 1)
-
 fig = plt.figure(figsize=(11,4))
-plt.plot(df4['tmax'], color = 'red')
-plt.plot(df4['tmin'], color = 'blue')
+plt.plot(df4, color = ['red', 'blue'])
 plt.ylim(bottom = 0)
 plt.legend(['tmax','tmin'])
 st.pyplot(fig)
