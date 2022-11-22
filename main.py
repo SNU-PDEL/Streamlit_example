@@ -137,7 +137,7 @@ st.pyplot(fig)
 
 
 vegetables = ["cucumber", "tomato", "lettuce", "asparagus",
-              "potato", "wheat", "barley"]
+              "potato", "wheat"]
 
 da58 = {'A' : [1, 0, 3, 2, 4, 5, 8],
         'B' : [1, 0, 3, 2, 4, 5, 8],
