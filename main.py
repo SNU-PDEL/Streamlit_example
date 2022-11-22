@@ -148,7 +148,7 @@ da58 = {'7/1' : [1, 0, 0, 0, 1, 5, 3],
 df58 = pd.DataFrame(da58, columns=sorted(da58.keys()))
 fig, ax = plt.subplots(figsize=(24, 20))
 im = ax.matshow(df58, cmap='Reds')
-plt.rcParams['font.family'] = 'NanumGothic' 
+plt.rcParams['font.family'] = 'Malgun Gothic'
 ax.set_xticks(np.arange(len(da58.keys())), labels=da58.keys(), size = 25)
 ax.set_yticks(np.arange(len(year)), labels=year, size = 25)
 ax.grid(False)
