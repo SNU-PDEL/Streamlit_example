@@ -54,6 +54,7 @@ plt.ylim(bottom = 0)
 plt.legend(['tmax','tmin'])
 st.pyplot(fig)
 
+st.subheader('')
 df_1 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
 df_2 = df_1.groupby(['Year','Mon']).mean()
 fruit = pd.read_csv('fruit.csv', encoding = 'cp949')
