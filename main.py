@@ -55,7 +55,6 @@ with col1_2:
     plt.title('seedling', size = 20)
     st.pyplot(fig2)
 
-    import matplotlib.pyplot as plt
     fig3 = plt.figure(3)
     ax3 = fig3.add_subplot()
     colors = ['lightblue','white']
@@ -65,14 +64,6 @@ with col1_2:
     ax3.text(-0.,0,data_frame['score'], size = 20, horizontalalignment='center', verticalalignment='center')
     plt.title('growth', size = 15)
     st.pyplot(fig3)
-
-labels = ['Oxygen','Hydrogen']
-values = [70, 30]
-layout = go.layout({'annotations' : {'font': {'size' : 20}, 'text' : data_frame['score']}})
-fig = go.Figure(data=go.Pie(labels=labels, values=values, hole=.9), layout = layout)
-fig.update_traces(marker = dict(colors = ['lightgreen','white']))
-
-st.plotly_chart(fig)
 
 
 st.subheader(location_selectbox + '의 평균 연간 기온 추이')
