@@ -81,7 +81,7 @@ plt.legend(['optimal tmax','optimal tmin','tmax','tmin'])
 st.pyplot(fig)
 
 ################################################################
-st.subheader('40년간 생육적정온도 비교 (' + location_selectbox + ')')
+st.subheader(cultiva_selectbox + ' 생육시기에 대한 ' + location_selectbox + '의 기온 변화 추이 (' + str((fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']).values[0])+ '월 ~ ' + str((fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']).values[0]) + '월)')
 df_13 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
 df_23 = df_13.groupby(['Year','Mon']).mean()
 fruit = pd.read_csv('fruit.csv', encoding = 'cp949')
