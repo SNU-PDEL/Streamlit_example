@@ -118,13 +118,13 @@ df_13 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').va
 df_23 = df_13.groupby(['Year','Mon']).mean()
 fruit = pd.read_csv('fruit.csv', encoding = 'cp949')
 if int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']) == 0:
-    fruit23 = (df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1))/2
+    fruit23 = (df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) + df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1))/2
 elif int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']) == 1:
-    fruit23 = (df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1))/2
+    fruit23 = (df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) + df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1))/2
 elif int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']) == 2:
-    fruit23 = (df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1))/3
+    fruit23 = (df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) + df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1) + df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1))/3
 else:
-    fruit23 = (df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])+2,axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1))/4
+    fruit23 = (df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) + df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1) + df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])+2,axis = 0, level = 1) + df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1))/4
 
 fruit23['optimal tmin'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 최저기온'])
 fruit23['optimal tmax'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 최고기온'])
