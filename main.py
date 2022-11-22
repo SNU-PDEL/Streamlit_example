@@ -67,6 +67,7 @@ fruit2['optimal tmin'] = int(fruit[fruit['작물명']==cultiva_selectbox]['육�
 fruit2['optimal tmax'] = int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 최고기온'])
 fig = plt.figure()
 plt.plot(fruit2[['tmax','tmin','optimal tmin','optimal tmax']])
+plt.fill_between(fruit2['optimal tmin'],fruit2['optimal tmax'])
 st.pyplot(fig)
 
 ####################################################################################
