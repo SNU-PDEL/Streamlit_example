@@ -46,7 +46,7 @@ with col1_2:
     import matplotlib.pyplot as plt
     fig2 = plt.gcf()
     colors = ['gray','white']
-    plt.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
+    plt.pie([data_frame['nonscore'],data_frame['score']],colors = colors, explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig2.gca().add_artist(centre_circle)
     plt.text(-0.,0,data_frame['nonscore'], size = 20, horizontalalignment='center', verticalalignment='center')
