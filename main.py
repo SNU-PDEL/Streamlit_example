@@ -51,6 +51,7 @@ colors = ['lightgreen','white']
 plt.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
 centre_circle = plt.Circle((0, 0), 0.90, fc='white')
 fig.gca().add_artist(centre_circle)
+plt.text(0,0,'2018')
 st.pyplot(fig)
 
 
