@@ -36,7 +36,7 @@ with col2:
 
 col1_1, col1_2 = st.columns([2,1])
 with col1_1:
-    fig = plt.gcf(1)
+    fig = plt.figure(1)
     ax = fig.add_subplot()
     colors = ['lightgreen','white']
     ax.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
@@ -45,7 +45,7 @@ with col1_1:
     ax.text(-0.,0,data_frame['score'], size = 20, horizontalalignment='center', verticalalignment='center')
     st.pyplot(fig)
 with col1_2:
-    fig2 = plt.gcf(2)
+    fig2 = plt.figure(2)
     ax2 = fig2.add_subplot()
     colors = ['gray','white']
     ax2.pie([data_frame['nonscore'],data_frame['score']],colors = ['gray','white'], explode = (0.05,0.05))
@@ -56,7 +56,7 @@ with col1_2:
     st.pyplot(fig2)
 
     import matplotlib.pyplot as plt
-    fig3 = plt.gcf(3)
+    fig3 = plt.figure(3)
     ax3 = fig3.add_subplot()
     colors = ['lightblue','white']
     ax3.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
