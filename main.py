@@ -43,7 +43,7 @@ with col2:
     plt.text(-0.,0,'70', size = 20, horizontalalignment='center', verticalalignment='center')
     st.pyplot(fig)
 
-st.subheader(location_selectbox + '의 평균 연간 최고, 최저 기온 추이')
+st.subheader(location_selectbox + '의 평균 연간 기온 추이')
 st3 = pd.read_csv('st3.csv')
 df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
 df2 = df.groupby('Year').mean()[['tmax','tmin']]
@@ -57,7 +57,7 @@ st.pyplot(fig)
 df_1 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
 df_2 = df_1.groupby(['Year','Mon']).mean()
 fruit = pd.read_csv('fruit.csv', encoding = 'cp949')
-st.subheader(cultiva_selectbox + '의 육묘시기에 따른 ' + location_selectbox + '의 온도 비교 (' + str((fruit[fruit['작물명']== cultiva_selectbox]['육묘 시작']).values[0])+ '월 ~ ' + str((fruit[fruit['작물명']== cultiva_selectbox]['육묘 끝']).values[0]) + '월)')
+st.subheader(cultiva_selectbox + ' 육묘시기에 대한 ' + location_selectbox + '의 기온 변화 추이 (' + str((fruit[fruit['작물명']== cultiva_selectbox]['육묘 시작']).values[0])+ '월 ~ ' + str((fruit[fruit['작물명']== cultiva_selectbox]['육묘 끝']).values[0]) + '월)')
 if int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 시작']) == 0:
     fruit2 = (df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작']),axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 끝']),axis = 0, level = 1))/2
 elif int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 시작']) == 1:
