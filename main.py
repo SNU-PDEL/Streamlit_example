@@ -146,9 +146,9 @@ da58 = {'A' : [1, 0, 3, 2, 4, 5, 8],
         'F' : [2, 0, 3, 4, 6, 5, 8],
        }
 df58 = pd.DataFrame(da58, columns=sorted(da58.keys()))
-fig, ax = plt.subplots(figsize=(24, 20))
-im = ax.matshow(df, cmap='viridis')
-ax.grid(False)
-ax.set_title("Correlation of Features")
-fig.colorbar(im)
-st.pyplot(fig)
+fig6, ax6 = plt.subplots(figsize=(24, 20))
+im = ax6.matshow(df, cmap='viridis')
+ax6.grid(False)
+ax6.set_title("Correlation of Features")
+fig6.colorbar(im)
+st.pyplot(fig6)
