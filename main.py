@@ -67,7 +67,7 @@ with col1_2:
 
 labels = ['Oxygen','Hydrogen']
 values = [70, 30]
-fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.9, color_discrete_map = {'Oxygen': 'lightgreen', 'Hydrogen' : 'white'})])
+fig = px.Figure(data=[px.Pie(labels=labels, values=values, hole=.9, color_discrete_map = {'Oxygen': 'lightgreen', 'Hydrogen' : 'white'})])
 st.plotly_chart(fig)
 
 
