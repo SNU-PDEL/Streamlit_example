@@ -41,17 +41,17 @@ with col1_1:
     ax.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig.gca().add_artist(centre_circle)
-    ax.text(-0.,0,data_frame['nonscore'], size = 20, horizontalalignment='center', verticalalignment='center')
+    ax.text(-0.,0,data_frame['score'], size = 20, horizontalalignment='center', verticalalignment='center')
     st.pyplot(fig)
 with col1_2:
-    import matplotlib.pyplot as plt
     fig2 = plt.gcf()
+    ax2 = fig2.add_subplot()
     colors = ['gray','white']
-    plt.pie([data_frame['nonscore'],data_frame['score']],colors = colors, explode = (0.05,0.05))
+    ax2.pie([data_frame['nonscore'],data_frame['score']],colors = colors, explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig2.gca().add_artist(centre_circle)
-    plt.text(-0.,0,data_frame['nonscore'], size = 20, horizontalalignment='center', verticalalignment='center')
-    plt.title('육묘', size = 20)
+    ax2.text(-0.,0,data_frame['nonscore'], size = 20, horizontalalignment='center', verticalalignment='center')
+    ax2.title('육묘', size = 20)
     st.pyplot(fig2)
 
     import matplotlib.pyplot as plt
