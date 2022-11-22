@@ -45,11 +45,18 @@ fig = px.pie(
 st.header('Donut chart')
 st.plotly_chart(fig)
 
+
+fig = plt.figure(figsize=(11,4))
+plt.pie(data_frame)
+st.pyplot(fig)
+
+
 st.subheader('Average annual temperature for 40 years')
 st3 = pd.read_csv('st3.csv')
 df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
 df2 = df.groupby('Year').mean()[['tmax','tmin']]
 st.line_chart(df2)
+
 
 st.subheader('40년간 육묘적정온도 비교')
 df_1 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
