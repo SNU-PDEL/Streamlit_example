@@ -173,12 +173,17 @@ st.pyplot(fig)
 
 st.subheader('')
 st.subheader(cultiva_selectbox + '의 생육 적정 기온구간과 ' + location_selectbox+'의 기온구간의 차이')   
-# heatmap = pd.read_csv('육묘_' + cultiva_selectbox + '_' + location_selectbox + '.csv') 
-df58 = pd.DataFrame(da58, columns=sorted(da58.keys()))
+heatmap2 = pd.read_csv('육묘_' + cultiva_selectbox + '_' + location_selectbox + '.csv') 
+heatmap2['cal_total'] = heatmap2['cal_tmax'] + heatmap2['cal_tmin']
+heat2 = []
+for i in range(len(heatmap)):
+    heat2.append(str(heatmap['Mon'][i]) +'/'+ str(heatmap['Day'][i]))
+heatmap2['date'] = heat2
+heat_pivot2 = heatmap2.pivot(['Year'],['date'],['cal_total'])
 fig, ax = plt.subplots(figsize=(24, 20))
-im = ax.matshow(df58, cmap='Blues')
-ax.set_xticks(np.arange(len(da58.keys())), labels=da58.keys(), size = 25)
-ax.set_yticks(np.arange(len(year)), labels=year, size = 25)
+im = ax.matshow(heat_pivot2, cmap='Blues')
+#ax.set_xticks(np.arange(len(da58.keys())), labels=da58.keys(), size = 25)
+#ax.set_yticks(np.arange(len(year)), labels=year, size = 25)
 ax.grid(False)
 fig.colorbar(im)
 st.pyplot(fig)
