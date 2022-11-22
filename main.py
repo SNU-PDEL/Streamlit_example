@@ -64,8 +64,9 @@ with col1_2:
     plt.title('생육', size = 15)
     st.pyplot(fig3)
 
-
-
+wg  = {'width' : 0.6, 'edgecolor' : 'b', 'linewidth' : 3}
+fig4 = plt.pie(data_frame, wedgeprops = wg)
+st.pyplot(fig4)
 
 
 
