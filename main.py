@@ -65,9 +65,9 @@ with col1_2:
     plt.title('생육', size = 15)
     st.pyplot(fig3)
 
-labels = ['Oxygen','Hydrogen','Carbon_Dioxide','Nitrogen']
-values = [4500, 2500, 1053, 500]
-fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3)])
+labels = ['Oxygen','Hydrogen']
+values = [70, 30]
+fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.9, color_discrete_map = {'Oxygen': 'lightgreen', 'Hydrogen' : 'white'})])
 st.plotly_chart(fig)
 
 
