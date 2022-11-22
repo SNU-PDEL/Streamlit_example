@@ -4,6 +4,7 @@ import numpy as np
 import altair as alt
 import plotly.express as px
 from PIL import Image
+import matplotlib.pyplot as plt
 
 
 st.title('Visualization homework')
@@ -27,6 +28,9 @@ col1, col2 = st.columns(2)
 with col1:
     df2 = pd.DataFrame({'lat': [42.187,34.355], 'lon' : [123.71945,130.502]})
     st.map(df2)
+with col2:
+    image = Image.open('20221122_095333.png')
+    st.image(image)
 
 data_frame = {'score' : 70,
               'nonscore' : 30}
@@ -208,5 +212,3 @@ fruit_total4['new_index'] = new_index4
 
 st.line_chart(fruit_total4, x = 'new_index')
 
-image = Image.open('20221122_095333.png')
-st.image(image)
