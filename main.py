@@ -35,7 +35,8 @@ fig = px.pie(
     labels = data_frame.values(),
     values= data_frame.values(),
     names = data_frame.keys(),
-    color=['White','Green'])
+    color=data_frame.keys(),
+    color_discrete_map={'score' : 'royalblue', 'nonscore' : 'white'})
 st.header('Donut chart')
 st.plotly_chart(fig)
 
