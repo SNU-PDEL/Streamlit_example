@@ -39,6 +39,7 @@ data_frame = {'score' : 70,
 fig = px.pie(
     hole = 0.9,
     values= data_frame.values(),
+    labels = None,
     color=data_frame.keys(),
     color_discrete_map={'score' : 'royalblue', 'nonscore' : 'white'})
 st.header('Donut chart')
