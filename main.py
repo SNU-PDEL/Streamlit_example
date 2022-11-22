@@ -42,6 +42,7 @@ with col2:
     fig.gca().add_artist(centre_circle)
     plt.text(-0.,0,'70', size = 20, horizontalalignment='center', verticalalignment='center')
     st.pyplot(fig)
+    col1_1,col1_2 = st.columns(2)
 
 st.subheader(location_selectbox + '의 평균 연간 기온 추이')
 st3 = pd.read_csv('st3.csv')
