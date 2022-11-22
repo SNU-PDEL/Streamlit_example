@@ -75,7 +75,8 @@ df2 = df.groupby('Year').max()[['tmax']]
 df3 = df.groupby('Year').min()[['tmin']]
 df4 = pd.concat([df2,df3], axis = 1)
 fig = plt.figure(figsize=(11,4))
-plt.plot(df4[['tmax','tmin']], color = ['red', 'blue'])
+plt.plot(df4['tmax'], color = 'red')
+plt.plot(df4['tmin'], color = 'blue')
 plt.ylim(bottom = 0)
 plt.legend(['tmax','tmin'])
 st.pyplot(fig)
