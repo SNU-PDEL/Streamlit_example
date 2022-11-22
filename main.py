@@ -43,7 +43,7 @@ with col2:
     plt.text(-0.,0,'70', size = 20, horizontalalignment='center', verticalalignment='center')
     st.pyplot(fig)
 
-st.subheader('40년간 평균연간 기온2 (' + location_selectbox + ')')
+st.subheader(location_selectbox + '의 평균 연간 기온 추이')
 st3 = pd.read_csv('st3.csv')
 df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
 df2 = df.groupby('Year').mean()[['tmax','tmin']]
