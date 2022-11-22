@@ -40,7 +40,7 @@ with col2:
     plt.text(-0.,0,'70', size = 20, horizontalalignment='center', verticalalignment='center')
     st.pyplot(fig)
 
-col1_1, col1_2 = st.columns([3,2])
+col1_1, col1_2 = st.columns([2,1])
 with col1_1:
     fig = plt.gcf()
     colors = ['lightgreen','white']
