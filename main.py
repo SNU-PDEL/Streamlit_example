@@ -26,6 +26,8 @@ if st.sidebar.button('Custom'):
             st.slider('생육 적정 기온', 10,40,(20,30))
             submitted1 = st.form_submit_button(label = 'submit')
 
+data_frame = {'score' : 70,'nonscore' : 30}
+
 col1, col2 = st.columns(2)
 with col1:
     df2 = pd.DataFrame({'lat': [42.187,34.355], 'lon' : [123.71945,130.502]})
@@ -33,18 +35,13 @@ with col1:
 with col2:
     image = Image.open(cultiva_selectbox + '.jpg')
     st.image(image)
-
-data_frame = {'score' : 70,
-              'nonscore' : 30}
-
-
-fig = plt.gcf()
-colors = ['lightgreen','white']
-plt.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
-centre_circle = plt.Circle((0, 0), 0.90, fc='white')
-fig.gca().add_artist(centre_circle)
-plt.text(-0.,0,'70', size = 20, horizontalalignment='center', verticalalignment='center')
-st.pyplot(fig)
+    fig = plt.gcf()
+    colors = ['lightgreen','white']
+    plt.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
+    centre_circle = plt.Circle((0, 0), 0.90, fc='white')
+    fig.gca().add_artist(centre_circle)
+    plt.text(-0.,0,'70', size = 20, horizontalalignment='center', verticalalignment='center')
+    st.pyplot(fig)
 
 
 st.subheader('Average annual temperature for 40 years')
