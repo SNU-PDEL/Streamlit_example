@@ -146,9 +146,9 @@ da58 = {'A' : [1, 0, 3, 2, 4, 5, 8],
         'F' : [2, 0, 3, 4, 6, 5, 8],
        }
 df58 = pd.DataFrame(da58, columns=sorted(da58.keys()))
-fig = plt.figure(5)
+fig = plt.figure(5, )
 ax = fig.add_subplot()
-im = ax.matshow(df, cmap='viridis')
+im = ax.matshow(df58, cmap='viridis')
 ax.grid(False)
 ax.set_title("Correlation of Features")
 fig.colorbar(im)
