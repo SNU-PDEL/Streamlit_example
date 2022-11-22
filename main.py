@@ -47,7 +47,7 @@ with col1_2:
     fig2 = plt.gcf()
     ax2 = fig2.add_subplot()
     colors = ['gray','white']
-    ax2.pie([data_frame['nonscore'],data_frame['score']],colors = colors, explode = (0.05,0.05))
+    ax2.pie([data_frame['nonscore'],data_frame['score']],colors = ['gray','white'], explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig2.gca().add_artist(centre_circle)
     ax2.text(-0.,0,data_frame['nonscore'], size = 20, horizontalalignment='center', verticalalignment='center')
