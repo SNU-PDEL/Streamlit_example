@@ -50,6 +50,18 @@ df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').value
 df2 = df.groupby('Year').mean()[['tmax','tmin']]
 st.line_chart(df2)
 
+st.subheader('40년간 평균연간 기온2 (' + location_selectbox + ')')
+st3 = pd.read_csv('st3.csv')
+df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
+df2 = df.groupby('Year').mean()[['tmax','tmin']]
+fig = plt.figure(figsize=(11,4))
+plt.plot(df2['tmax'], color = 'red')
+plt.plot(df2['tmin'], color = 'blue')
+plt.ylim(bottom = 0)
+plt.legend(['tmax','tmin'])
+st.pyplot(fig)
+
+
 
 st.subheader('40년간 육묘적정온도 비교 (' + location_selectbox + ')')
 df_1 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
