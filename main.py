@@ -55,6 +55,7 @@ with col1_2:
     plt.title('육묘', size = 20)
     st.pyplot(fig2)
 
+    import matplotlib.pyplot as plt
     fig3 = plt.gcf()
     ax3 = fig3.add_subplot()
     colors = ['lightblue','white']
@@ -62,7 +63,7 @@ with col1_2:
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig3.gca().add_artist(centre_circle)
     ax3.text(-0.,0,data_frame['score'], size = 20, horizontalalignment='center', verticalalignment='center')
-    fig3.title('growth', size = 15)
+    plt.title('growth', size = 15)
     st.pyplot(fig3)
 
 labels = ['Oxygen','Hydrogen']
