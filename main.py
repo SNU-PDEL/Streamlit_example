@@ -51,7 +51,7 @@ with col1_1:
     st.pyplot(fig)
 with col1_2:
     fig2 = plt.gcf()
-    colors = ['lightred','white']
+    colors = ['gray','white']
     plt.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig2.gca().add_artist(centre_circle)
