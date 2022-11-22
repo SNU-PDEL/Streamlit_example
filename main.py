@@ -78,7 +78,7 @@ plt.legend(['optimal tmax','optimal tmin','tmax','tmin'])
 st.pyplot(fig)
 
 ################################################################
-st.subheader('40년간 생육적정온도 비교')
+st.subheader('40년간 생육적정온도 비교 (' + location_selectbox + ')')
 df_13 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
 df_23 = df_13.groupby(['Year','Mon']).mean()
 fruit = pd.read_csv('fruit.csv', encoding = 'cp949')
