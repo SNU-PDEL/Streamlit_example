@@ -137,18 +137,19 @@ st.pyplot(fig)
 
 
 
-
-da58 = {'cucumber' : [1, 0, 0, 0, 1, 5, 3],
-        'tomato' : [1, 0, 0, 0, 0, 2, 4],
-        'lettuce' : [0, 0, 3, 0, 5, 2, 0],
-        'asparagus' : [3, 2, 4, 0, 0, 0, 0],
-        'potato' : [6, 2, 4, 1, 0, 0, 1],
-        'wheat' : [2, 0, 3, 0, 0, 0, 0],
+year = [1980,1981,1982,1983,1984,1985,1986]
+da58 = {'7/1' : [1, 0, 0, 0, 1, 5, 3],
+        '7/2' : [1, 0, 0, 0, 0, 2, 4],
+        '7/3' : [0, 0, 3, 0, 5, 2, 0],
+        '7/4' : [3, 2, 4, 0, 0, 0, 0],
+        '7/5' : [6, 2, 4, 1, 0, 0, 1],
+        '7/6' : [2, 0, 3, 0, 0, 0, 0],
        }
 df58 = pd.DataFrame(da58, columns=sorted(da58.keys()))
 fig, ax = plt.subplots(figsize=(24, 20))
 im = ax.matshow(df58, cmap='Reds')
 ax.set_xticks(np.arange(len(da58.keys())), labels=da58.keys())
+ax.set_yticks(np.arange(len(year)), labels=year)
 ax.grid(False)
 ax.set_title("Correlation of Features")
 fig.colorbar(im)
