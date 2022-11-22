@@ -68,7 +68,7 @@ ax = fig.add_subplot()
 colors = ['lightgreen','white']
 ax.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
 centre_circle = plt.Circle((0, 0), 0.90, fc='white')
-ax.gca().add_artist(centre_circle)
+fig.gca().add_artist(centre_circle)
 ax.text(-0.,0,data_frame['score'], size = 20, horizontalalignment='center', verticalalignment='center')
 st.pyplot(fig)
 
