@@ -66,10 +66,11 @@ else:
 fruit2['optimal tmin'] = int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 최저기온'])
 fruit2['optimal tmax'] = int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 최고기온'])
 fig = plt.figure(figsize=(10,5))
-plt.plot(fruit2['tmax'], color = 'red')
-plt.plot(fruit2['tmin'], color = 'blue')
 plt.plot(fruit2['optimal tmin'], color = 'lightblue')
 plt.plot(fruit2['optimal tmax'], color = 'lightblue')
+plt.plot(fruit2['tmax'], color = 'red')
+plt.plot(fruit2['tmin'], color = 'blue')
+
 plt.fill_between(x = fruit2.index, y1= fruit2['optimal tmin'],y2 =fruit2['optimal tmax'], facecolor = 'lightblue', alpha = 0.5)
 plt.ylim(0,30)
 plt.legend(['tmax','tmin','optimal tmin','optimal tmax'])
