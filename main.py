@@ -136,7 +136,8 @@ plt.legend(['optimal tmax','optimal tmin','tmax','tmin'])
 st.pyplot(fig)
 
 
-
+vegetables = ["cucumber", "tomato", "lettuce", "asparagus",
+              "potato", "wheat", "barley"]
 
 da58 = {'A' : [1, 0, 3, 2, 4, 5, 8],
         'B' : [1, 0, 3, 2, 4, 5, 8],
@@ -148,6 +149,7 @@ da58 = {'A' : [1, 0, 3, 2, 4, 5, 8],
 df58 = pd.DataFrame(da58, columns=sorted(da58.keys()))
 fig, ax = plt.subplots(figsize=(24, 20))
 im = ax.matshow(df58, cmap='viridis')
+ax.set_yticks(np.arange(len(vegetables)), labels=vegetables)
 ax.grid(False)
 ax.set_title("Correlation of Features")
 fig.colorbar(im)
