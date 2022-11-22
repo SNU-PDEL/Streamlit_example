@@ -145,6 +145,9 @@ da58 = {'7/1' : [1, 0, 0, 0, 1, 5, 3],
         '7/5' : [6, 2, 4, 1, 0, 0, 1],
         '7/6' : [2, 0, 3, 0, 0, 0, 0],
        }
+
+st.subheader('')
+st.subheader(cultiva_selectbox + ' 육묘에서 적정 기온구간과의 차이')    
 df58 = pd.DataFrame(da58, columns=sorted(da58.keys()))
 fig, ax = plt.subplots(figsize=(24, 20))
 im = ax.matshow(df58, cmap='Reds')
@@ -153,6 +156,5 @@ plt.rc('font', family = 'Malgun Gothic')
 ax.set_xticks(np.arange(len(da58.keys())), labels=da58.keys(), size = 25)
 ax.set_yticks(np.arange(len(year)), labels=year, size = 25)
 ax.grid(False)
-ax.set_title(cultiva_selectbox + ' 육묘에서 적정 기온구간과의 차이', size = 30)
 fig.colorbar(im)
 st.pyplot(fig)
