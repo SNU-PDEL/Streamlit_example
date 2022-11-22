@@ -56,6 +56,7 @@ with col1_2:
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig2.gca().add_artist(centre_circle)
     plt.text(-0.,0,'70', size = 20, horizontalalignment='center', verticalalignment='center')
+    plt.title('육묘')
     st.pyplot(fig2)
 
     fig3 = plt.gcf()
@@ -64,6 +65,7 @@ with col1_2:
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig3.gca().add_artist(centre_circle)
     plt.text(-0.,0,'70', size = 20, horizontalalignment='center', verticalalignment='center')
+    plt.title('생육')
     st.pyplot(fig3)
 
 
