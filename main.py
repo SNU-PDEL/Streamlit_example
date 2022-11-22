@@ -68,7 +68,7 @@ with col1_2:
     st.pyplot(fig3)
 
 
-st.subheader(location_selectbox + '의 평균 연간 기온 추이')
+st.subheader(location_selectbox + '의 최고기온, 최저기온')
 st3 = pd.read_csv('st3.csv')
 df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
 df2 = df.groupby('Year').max()[['tmax']]
