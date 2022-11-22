@@ -34,6 +34,9 @@ with col2:
     image = Image.open(cultiva_selectbox + '.jpg')
     st.image(image)
 
+data_frame = {'score' : 70,
+              'nonscore' : 30}
+
 
 fig = plt.gcf()
 colors = ['lightgreen','white']
