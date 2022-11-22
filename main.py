@@ -48,7 +48,7 @@ with col1_2:
     plt.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig2.gca().add_artist(centre_circle)
-    plt.text(-0.,0,data_frame['score'], size = 20, horizontalalignment='center', verticalalignment='center')
+    fig2.text(-0.,0,data_frame['score'], size = 20, horizontalalignment='center', verticalalignment='center')
     plt.title('육묘', size = 20)
     st.pyplot(fig2)
 
