@@ -147,7 +147,7 @@ da58 = {'cucumber' : [1, 0, 3, 2, 4, 5, 8],
        }
 df58 = pd.DataFrame(da58, columns=sorted(da58.keys()))
 fig, ax = plt.subplots(figsize=(24, 20))
-im = ax.matshow(df58, cmap='viridis')
+im = ax.matshow(df58, cmap='RdYlBu')
 ax.set_xticks(np.arange(len(da58.keys())), labels=da58.keys())
 ax.grid(False)
 ax.set_title("Correlation of Features")
