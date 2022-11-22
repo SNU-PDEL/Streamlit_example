@@ -67,7 +67,7 @@ with col1_2:
 
 labels = ['Oxygen','Hydrogen']
 values = [70, 30]
-layout = go.layout('annotations' : {'font': {'size' : 20},} 'text' : data_frame['score'])
+layout = go.layout({'annotations' : {'font': {'size' : 20}, 'text' : data_frame['score']}})
 fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.9), layout = layout])
 fig.update_traces(marker = dict(colors = ['lightgreen','white']))
 
