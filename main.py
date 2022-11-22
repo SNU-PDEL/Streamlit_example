@@ -50,21 +50,21 @@ with col1_1:
     plt.text(-0.,0,'70', size = 20, horizontalalignment='center', verticalalignment='center')
     st.pyplot(fig)
 with col1_2:
-    fig = plt.gcf()
+    fig2 = plt.gcf()
     colors = ['lightred','white']
     plt.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
-    fig.gca().add_artist(centre_circle)
+    fig2.gca().add_artist(centre_circle)
     plt.text(-0.,0,'70', size = 20, horizontalalignment='center', verticalalignment='center')
-    st.pyplot(fig)
+    st.pyplot(fig2)
 
-    fig = plt.gcf()
+    fig3 = plt.gcf()
     colors = ['lightblue','white']
     plt.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
-    fig.gca().add_artist(centre_circle)
+    fig3.gca().add_artist(centre_circle)
     plt.text(-0.,0,'70', size = 20, horizontalalignment='center', verticalalignment='center')
-    st.pyplot(fig)
+    st.pyplot(fig3)
 
 
 
