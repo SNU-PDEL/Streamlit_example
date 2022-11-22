@@ -47,7 +47,7 @@ st.plotly_chart(fig)
 
 
 fig = plt.figure(figsize=(11,4))
-plt.pie([data_frame['score'],data_frame['nonscore']], autopct = '%1%', pctdistance= 0.85)
+plt.pie([data_frame['score'],data_frame['nonscore']], autopct = '%1f%%', pctdistance= 0.85)
 st.pyplot(fig)
 
 
