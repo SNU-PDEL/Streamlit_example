@@ -138,16 +138,16 @@ st.pyplot(fig)
 
 
 
-da58 = {'cucumber' : [1, 0, 3, 2, 4, 5, 8],
-        'tomato' : [1, 0, 3, 2, 4, 5, 8],
-        'lettuce' : [7, 6, 3, 4, 5, 2, 1],
-        'asparagus' : [3, 2, 4, 7, 6, 3, 0],
-        'potato' : [6, 7, 8, 9, 10, 11, 12],
-        'wheat' : [2, 0, 3, 4, 6, 5, 8],
+da58 = {'cucumber' : [1, 0, 0, 0, 1, 5, 3],
+        'tomato' : [1, 0, 0, 0, 0, 2, 4],
+        'lettuce' : [0, 0, 3, 0, 5, 2, 0],
+        'asparagus' : [3, 2, 4, 0, 0, 0, 0],
+        'potato' : [6, 2, 4, 1, 0, 0, 1],
+        'wheat' : [2, 0, 3, 0, 0, 0, 0],
        }
 df58 = pd.DataFrame(da58, columns=sorted(da58.keys()))
 fig, ax = plt.subplots(figsize=(24, 20))
-im = ax.matshow(df58, cmap='RdBu')
+im = ax.matshow(df58, cmap='Reds')
 ax.set_xticks(np.arange(len(da58.keys())), labels=da58.keys())
 ax.grid(False)
 ax.set_title("Correlation of Features")
