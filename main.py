@@ -48,7 +48,7 @@ st.plotly_chart(fig)
 
 fig = plt.gcf()
 plt.pie([data_frame['score'],data_frame['nonscore']], explode = (0.05,0.05))
-centre_circle = plt.Circle((0, 0), 0.70, fc='white')
+centre_circle = plt.Circle((0, 0), 0.90, fc='white')
 fig.gca().add_artist(centre_circle)
 st.pyplot(fig)
 
