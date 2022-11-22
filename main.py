@@ -71,10 +71,11 @@ with col1_2:
 st.subheader(location_selectbox + '의 평균 연간 기온 추이')
 st3 = pd.read_csv('st3.csv')
 df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
-df2 = df.groupby('Year').mean()[['tmax','tmin']]
+df2 = df.groupby('Year').max()[['tmax']]
+df3 = df.groupby('Year').min()[['tmin']]
 fig = plt.figure(figsize=(11,4))
 plt.plot(df2['tmax'], color = 'red')
-plt.plot(df2['tmin'], color = 'blue')
+plt.plot(df3['tmin'], color = 'blue')
 plt.ylim(bottom = 0)
 plt.legend(['tmax','tmin'])
 st.pyplot(fig)
