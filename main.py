@@ -153,15 +153,21 @@ da58 = {'7/1' : [1, 0, 0, 0, 1, 5, 3],
         '7/6' : [2, 0, 3, 0, 0, 0, 0],
        }
 
+
+
+
 st.subheader('')
 st.subheader(cultiva_selectbox + '의 육묘 적정 기온구간과 ' + location_selectbox+'의 기온구간의 차이')   
 heatmap = pd.read_csv('육묘_' + cultiva_selectbox + '_' + location_selectbox + '.csv')
 heatmap['cal_total'] = heatmap['cal_tmax'] + heatmap['cal_tmin']
-fig, ax = plt.subplots(figsize=(24, 20))
-im = ax.matshow(heatmap, cmap='Reds')
-heat = []
 for i in range(len(heatmap)):
     heat.append(str(heatmap['Mon'][i]) +'/'+ str(heatmap['Day'][i]))
+heatmap['date'] = heat
+heat_pivot = heatmap.pivot(['Year'],['date'],['cal_total'])
+fig, ax = plt.subplots(figsize=(24, 20))
+im = ax.matshow(heat_pivot, cmap='Reds')
+heat = []
+
 ax.set_xticks(np.arange(len(heatmap)), labels=heat, size = 25)
 ax.set_yticks(np.arange(len(year)), labels=heatmap['Year'], size = 25)
 ax.grid(False)
