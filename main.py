@@ -5,6 +5,7 @@ import altair as alt
 import plotly.express as px
 from PIL import Image
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 
 st.title('Visualization homework')
 st.sidebar.slider('년도',1980,2020)
@@ -64,10 +65,10 @@ with col1_2:
     plt.title('생육', size = 15)
     st.pyplot(fig3)
 
-wg  = {'width' : 0.6, 'edgecolor' : 'b', 'linewidth' : 3}
-fig4 = plt.pie([data_frame['score'],data_frame['nonscore']], wedgeprops = wg)
-st.pyplot(fig4)
-
+labels = ['Oxygen','Hydrogen','Carbon_Dioxide','Nitrogen']
+values = [4500, 2500, 1053, 500]
+fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3)])
+st.plotly_chart(fig)
 
 
 st.subheader(location_selectbox + '의 평균 연간 기온 추이')
