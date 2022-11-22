@@ -69,6 +69,7 @@ fig = plt.figure(figsize=(10,5))
 plt.plot(fruit2[['tmax','tmin','optimal tmin','optimal tmax']])
 plt.fill_between(x = fruit2.index, y1= fruit2['optimal tmin'],y2 =fruit2['optimal tmax'], facecolor = 'green', alpha = 0.5)
 plt.ylim(0,30)
+plt.legend()
 st.pyplot(fig)
 
 ####################################################################################
