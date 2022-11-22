@@ -44,7 +44,7 @@ with col2:
     st.pyplot(fig)
 
 
-st.subheader('Average annual temperature for 40 years')
+st.subheader('40년간 평균연간 기온 (' + location_selectbox + ')')
 st3 = pd.read_csv('st3.csv')
 df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
 df2 = df.groupby('Year').mean()[['tmax','tmin']]
