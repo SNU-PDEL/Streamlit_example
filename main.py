@@ -176,8 +176,8 @@ st.subheader(cultiva_selectbox + '의 생육 적정 기온구간과 ' + location
 heatmap2 = pd.read_csv('생육_' + cultiva_selectbox + '_' + location_selectbox + '.csv') 
 heatmap2['cal_total'] = heatmap2['cal_tmax'] + heatmap2['cal_tmin']
 heat2 = []
-for i in range(len(heatmap)):
-    heat2.append(str(heatmap['Mon'][i]) +'/'+ str(heatmap['Day'][i]))
+for i in range(len(heatmap2)):
+    heat2.append(str(heatmap2['Mon'][i]) +'/'+ str(heatmap2['Day'][i]))
 heatmap2['date'] = heat2
 heat_pivot2 = heatmap2.pivot(['Year'],['date'],['cal_total'])
 fig, ax = plt.subplots(figsize=(24, 20))
