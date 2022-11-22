@@ -65,7 +65,7 @@ else:
 
 fruit2['optimal tmin'] = int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 최저기온'])
 fruit2['optimal tmax'] = int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 최고기온'])
-fig = plt.figure(figsize=(10,4))
+fig = plt.figure(figsize=(11,4))
 plt.plot(fruit2['optimal tmin'], color = 'lightgray')
 plt.plot(fruit2['optimal tmax'], color = 'lightgray')
 plt.plot(fruit2['tmax'], color = 'red')
@@ -93,7 +93,7 @@ else:
 fruit23['optimal tmin'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 최저기온'])
 fruit23['optimal tmax'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 최고기온'])
 
-fig = plt.figure(figsize=(10,4))
+fig = plt.figure(figsize=(11,4))
 plt.plot(fruit23['optimal tmin'], color = 'lightgray')
 plt.plot(fruit23['optimal tmax'], color = 'lightgray')
 plt.plot(fruit23['tmax'], color = 'red')
