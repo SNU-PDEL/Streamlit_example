@@ -47,7 +47,7 @@ st.plotly_chart(fig)
 
 
 fig = plt.figure(figsize=(11,4))
-plt.pie([data_frame['score'],data_frame['nonscore']], explode = explode)
+plt.pie([data_frame['score'],data_frame['nonscore']], explode = (0.05,0.05))
 st.pyplot(fig)
 
 
