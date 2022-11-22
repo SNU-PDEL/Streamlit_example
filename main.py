@@ -152,6 +152,6 @@ plt.rcParams['font.family'] = 'NanumGothic'
 ax.set_xticks(np.arange(len(da58.keys())), labels=da58.keys(), size = 25)
 ax.set_yticks(np.arange(len(year)), labels=year, size = 25)
 ax.grid(False)
-ax.set_title(cultiva_selectbox + ' 육묘에서 적정 기온구간과의 차이', size = 30)
+ax.set_title(cultiva_selectbox + ' 육묘에서 적정 기온구간과의 차이', size = 30,fontdict= 'NanumGothic')
 fig.colorbar(im)
 st.pyplot(fig)
