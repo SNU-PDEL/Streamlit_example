@@ -71,8 +71,8 @@ with col1_2:
 st.subheader(location_selectbox + '의 최고기온, 최저기온')
 st3 = pd.read_csv('st3.csv')
 df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
-df2 = df.groupby('Year').max()[['tmax']]
-df3 = df.groupby('Year').min()[['tmin']]
+df2 = df.groupby('Year').max()['tmax']
+df3 = df.groupby('Year').min()['tmin']
 df4 = pd.concat([df2,df3], axis = 1)
 fig = plt.figure(figsize=(11,4))
 plt.plot(df4['tmax'], color = 'red')
@@ -82,17 +82,19 @@ st.pyplot(fig)
 
 st.subheader('')
 df_1 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
-df_2 = df_1.groupby(['Year','Mon']).mean()
+df_2 = df_1.groupby(['Year','Mon']).max()['tmax']
+df_3 = df_1.groupby(['Year','Mon']).min()['tmin']
+df_4 = pd.concat([df_2,df_3], axis = 1)
 fruit = pd.read_csv('fruit.csv', encoding = 'cp949')
 st.subheader(cultiva_selectbox + ' 육묘시기에 대한 ' + location_selectbox + '의 기온 변화 추이 (' + str((fruit[fruit['작물명']== cultiva_selectbox]['육묘 시작']).values[0])+ '월 ~ ' + str((fruit[fruit['작물명']== cultiva_selectbox]['육묘 끝']).values[0]) + '월)')
 if int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 시작']) == 0:
-    fruit2 = (df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작']),axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 끝']),axis = 0, level = 1))/2
+    fruit2 = (df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작']),axis = 0, level = 1) + df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 끝']),axis = 0, level = 1))/2
 elif int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 시작']) == 1:
-    fruit2 = (df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작']),axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 끝']),axis = 0, level = 1))/2
+    fruit2 = (df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작']),axis = 0, level = 1) + df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 끝']),axis = 0, level = 1))/2
 elif int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 시작']) == 2:
-    fruit2 = (df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작']),axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작'])+1,axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 끝']),axis = 0, level = 1))/3
+    fruit2 = (df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작']),axis = 0, level = 1) + df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작'])+1,axis = 0, level = 1) + df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 끝']),axis = 0, level = 1))/3
 else:
-    fruit2 = (df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작']),axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작'])+1,axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작'])+2,axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 끝']),axis = 0, level = 1))/4
+    fruit2 = (df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작']),axis = 0, level = 1) + df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작'])+1,axis = 0, level = 1) + df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작'])+2,axis = 0, level = 1) + df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 끝']),axis = 0, level = 1))/4
 
 fruit2['optimal tmin'] = int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 최저기온'])
 fruit2['optimal tmax'] = int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 최고기온'])
