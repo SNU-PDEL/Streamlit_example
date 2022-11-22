@@ -31,19 +31,8 @@ with col1:
     df2 = pd.DataFrame({'lat': [42.187,34.355], 'lon' : [123.71945,130.502]})
     st.map(df2)
 with col2:
-    image = Image.open('20221122_095333.png')
+    image = Image.open(cultiva_selectbox + '.jpg')
     st.image(image)
-
-data_frame = {'score' : 70,
-              'nonscore' : 30}
-fig = px.pie(
-    hole = 0.9,
-    values= data_frame.values(),
-    labels = None,
-    color=data_frame.keys(),
-    color_discrete_map={'score' : 'royalblue', 'nonscore' : 'white'})
-st.header('Donut chart')
-st.plotly_chart(fig)
 
 
 fig = plt.gcf()
@@ -51,7 +40,7 @@ colors = ['lightgreen','white']
 plt.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
 centre_circle = plt.Circle((0, 0), 0.90, fc='white')
 fig.gca().add_artist(centre_circle)
-plt.text(-0.,0,'2018', size = 20, horizontalalignment='center', verticalalignment='center')
+plt.text(-0.,0,'70', size = 20, horizontalalignment='center', verticalalignment='center')
 st.pyplot(fig)
 
 
