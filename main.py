@@ -33,6 +33,8 @@ with col1:
 with col2:
     image = Image.open(cultiva_selectbox + '.jpg')
     st.image(image)
+    image2 = Image.open(cultiva_selectbox + '2.png')
+    st.image(image2)
 
 col1_1, col1_2 = st.columns([2,1])
 with col1_1:
