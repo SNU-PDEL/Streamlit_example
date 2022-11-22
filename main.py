@@ -147,7 +147,7 @@ da58 = {'A' : [1, 0, 3, 2, 4, 5, 8],
        }
 df58 = pd.DataFrame(da58, columns=sorted(da58.keys()))
 fig = plt.figure(5)
-ax = fig.add_subplot(5)
+ax = fig.add_subplot()
 im = ax.matshow(df, cmap='viridis')
 ax.grid(False)
 ax.set_title("Correlation of Features")
