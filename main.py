@@ -135,7 +135,9 @@ plt.plot(fruit23['optimal tmax'], color = 'lightgray')
 plt.plot(fruit23['tmax'], color = 'red')
 plt.plot(fruit23['tmin'], color = 'blue')
 
-plt.fill_between(x = fruit23.index, y1= fruit23['optimal tmin'],y2 =fruit23['tmin'], where = (fruit23['tmin'] < fruit23['optimal tmin']), facecolor = 'lightgray', alpha = 0.5)
+plt.fill_between(x = fruit23.index, y1= fruit23['optimal tmin'],y2 =fruit23['tmin'], where = (fruit23['tmin'] < fruit23['optimal tmin']),interpolate= True, facecolor = 'blue', alpha = 0.5)
+plt.fill_between(x = fruit23.index, y1= fruit23['optimal tmax'],y2 =fruit23['tmax'], where = (fruit23['tmax'] > fruit23['optimal tmax']),interpolate= True, facecolor = 'red', alpha = 0.5)
+
 plt.ylim(bottom = 0)
 plt.legend(['optimal tmax','optimal tmin','tmax','tmin'])
 st.pyplot(fig)
