@@ -147,7 +147,7 @@ da58 = {'7/1' : [1, 0, 0, 0, 1, 5, 3],
        }
 
 st.subheader('')
-st.subheader(cultiva_selectbox + ' 육묘에서 적정 기온구간과' + location_selectbox+' 육묘구간 의 차이')   
+st.subheader(cultiva_selectbox + ' 육묘 적정 기온구간과 ' + location_selectbox+'의 기온구간의 차이')   
 # heatmap = pd.read_csv('육묘_' + cultiva_selectbox + '_' + location_selectbox + '.csv') 
 df58 = pd.DataFrame(da58, columns=sorted(da58.keys()))
 fig, ax = plt.subplots(figsize=(24, 20))
