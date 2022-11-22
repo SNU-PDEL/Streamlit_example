@@ -54,7 +54,7 @@ with col1_2:
     plt.title('육묘', size = 20)
     st.pyplot(fig2)
 
-    fig3 = plt.plot()
+    fig3 = plt.gcf()
     ax3 = fig3.add_subplot()
     colors = ['lightblue','white']
     ax3.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
