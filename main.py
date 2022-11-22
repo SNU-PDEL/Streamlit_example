@@ -37,7 +37,6 @@ data_frame = {'score' : 70,
 fig = px.pie(
     hole = 0.9,
     labels = data_frame.values(),
-    values= data_frame.values(),
     names = data_frame.keys(),
     color=data_frame.keys(),
     color_discrete_map={'score' : 'royalblue', 'nonscore' : 'white'})
