@@ -145,7 +145,7 @@ da58 = {'A' : [1, 0, 3, 2, 4, 5, 8],
         'E' : [6, 7, 8, 9, 10, 11, 12],
         'F' : [2, 0, 3, 4, 6, 5, 8],
        }
-df58 = pd.DataFrame(da58, columns=sorted(data.keys()))
+df58 = pd.DataFrame(da58, columns=sorted(da58.keys()))
 fig, ax = plt.subplots(figsize=(24, 20))
 im = ax.matshow(df, cmap='viridis')
 ax.grid(False)
