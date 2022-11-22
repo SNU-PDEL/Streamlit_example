@@ -65,7 +65,7 @@ with col1_2:
     st.pyplot(fig3)
 
 wg  = {'width' : 0.6, 'edgecolor' : 'b', 'linewidth' : 3}
-fig4 = plt.pie(data_frame, wedgeprops = wg)
+fig4 = plt.pie([data_frame['score'],data_frame['nonscore']], wedgeprops = wg)
 st.pyplot(fig4)
 
 
