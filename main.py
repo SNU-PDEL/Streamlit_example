@@ -167,8 +167,6 @@ heatmap['date'] = heat
 heat_pivot = heatmap.pivot(['Year'],['date'],['cal_total'])
 fig, ax = plt.subplots(figsize=(24, 20))
 im = ax.matshow(heat_pivot, cmap='Reds')
-ax.set_xticks(np.arange(len(heatmap)), labels=heat, size = 25)
-ax.set_yticks(np.arange(len(year)), labels=heatmap['Year'], size = 25)
 ax.grid(False)
 fig.colorbar(im)
 st.pyplot(fig)
