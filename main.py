@@ -4,6 +4,8 @@ import numpy as np
 import altair as alt
 import plotly.express as px
 from PIL import Image
+import matplotlib.pyplot as plt
+
 
 
 
