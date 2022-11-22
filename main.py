@@ -57,7 +57,7 @@ st.pyplot(fig)
 df_1 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
 df_2 = df_1.groupby(['Year','Mon']).mean()
 fruit = pd.read_csv('fruit.csv', encoding = 'cp949')
-st.subheader('40년간 육묘적정온도 비교 (' + location_selectbox + ')' + '(' + fruit[fruit['작물명']== cultiva_selectbox]['육묘 시작']+ '~' + fruit[fruit['작물명']== cultiva_selectbox]['육묘 끝'] + '월')
+st.subheader('40년간 육묘적정온도 비교 (' + location_selectbox + ')' + '(' + str(fruit[fruit['작물명']== cultiva_selectbox]['육묘 시작'])+ '~' + str(fruit[fruit['작물명']== cultiva_selectbox]['육묘 끝']) + '월')
 if int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 시작']) == 0:
     fruit2 = (df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작']),axis = 0, level = 1) + df_2.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 끝']),axis = 0, level = 1))/2
 elif int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 시작']) == 1:
