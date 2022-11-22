@@ -173,7 +173,7 @@ st.pyplot(fig)
 
 st.subheader('')
 st.subheader(cultiva_selectbox + '의 생육 적정 기온구간과 ' + location_selectbox+'의 기온구간의 차이')   
-heatmap2 = pd.read_csv('생육' + cultiva_selectbox + '_' + location_selectbox + '.csv') 
+heatmap2 = pd.read_csv('생육_' + cultiva_selectbox + '_' + location_selectbox + '.csv') 
 heatmap2['cal_total'] = heatmap2['cal_tmax'] + heatmap2['cal_tmin']
 heat2 = []
 for i in range(len(heatmap)):
