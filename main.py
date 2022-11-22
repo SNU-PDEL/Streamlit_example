@@ -47,21 +47,20 @@ with col1_2:
     fig2 = plt.gcf()
     ax2 = fig2.add_subplot()
     colors = ['gray','white']
-    ax2.pie([data_frame['score'],data_frame['score']],colors = ['gray','white'], explode = (0.05,0.05))
+    ax2.pie([data_frame['nonscore'],data_frame['score']],colors = ['gray','white'], explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig2.gca().add_artist(centre_circle)
-    ax2.text(-0.,0,data_frame['score'], size = 20, horizontalalignment='center', verticalalignment='center')
+    ax2.text(-0.,0,data_frame['nonscore'], size = 20, horizontalalignment='center', verticalalignment='center')
     plt.title('육묘', size = 20)
     st.pyplot(fig2)
 
-    import matplotlib.pyplot as plt
     fig3 = plt.gcf()
     ax3 = fig3.add_subplot()
     colors = ['lightblue','white']
     ax3.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig3.gca().add_artist(centre_circle)
-    ax3.text(-0.,0,data_frame['nonscore'], size = 20, horizontalalignment='center', verticalalignment='center')
+    ax3.text(-0.,0,data_frame['score'], size = 20, horizontalalignment='center', verticalalignment='center')
     plt.title('생육', size = 15)
     st.pyplot(fig3)
 
