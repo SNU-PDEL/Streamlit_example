@@ -62,7 +62,7 @@ with col1_2:
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig3.gca().add_artist(centre_circle)
     ax3.text(-0.,0,data_frame['score'], size = 20, horizontalalignment='center', verticalalignment='center')
-    ax3.title('growth', size = 15)
+    fig3.title('growth', size = 15)
     st.pyplot(fig3)
 
 labels = ['Oxygen','Hydrogen']
