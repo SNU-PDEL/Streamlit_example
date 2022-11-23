@@ -8,10 +8,10 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
 st.title('Visualization homework')
-st.sidebar.slider('년도',1980,2020)
+st.sidebar.slider('년도',1980,2100)
 with st.form(key='Form2'):
     with st.sidebar:
-        location_selectbox = st.selectbox('시군구',('강릉','강화','거제','거창','고창','고흥','광주','구미','군산','금산','남원','남해','대관령','대구','대전','목포','문경','밀양','보령','보은','봉화','부산','부안','부여','산청','서귀포','서산','서울','성산','속초','수원','안동','양평','여수','영덕','영주','영천','완도','울릉도','울산','울진','원주','의성','이천','인제','인천','임실','장흥','전주','정읍','제주','제천','진주','천안','청주','추풍령','춘천','충주','통영','포항','합천','해남','홍천'))
+        location_selectbox = st.selectbox('시군구',('강릉','강화','거제','거창','고흥','광주','구미','군산','금산','남원','남해','대관령','대구','대전','목포','문경','밀양','보령','보은','부산','부안','부여','산청','서귀포','서산','서울','성산','속초','수원','양평','여수','영덕','영주','영천','완도','울산','울진','원주','의성','이천','인제','인천','임실','장흥','전주','정읍','제주','제천','진주','천안','청주','추풍령','춘천','충주','통영','포항','합천','해남','홍천'))
         cultiva_selectbox = st.selectbox('작물',('가지','고구마','멜론','배추','브로콜리','사과','상추','양배추','파프리카','호박','기타'))
         submitted2 = st.form_submit_button(label = 'submit')
 
@@ -70,7 +70,7 @@ with col1_2:
 
 st.subheader(location_selectbox + '의 최고기온, 최저기온')
 st3 = pd.read_csv('st3.csv')
-df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
+df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'_new.csv').values[0])
 df2 = df.groupby('Year').max()['tmax']
 df3 = df.groupby('Year').min()['tmin']
 df4 = pd.concat([df2,df3], axis = 1)
