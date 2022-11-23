@@ -144,12 +144,12 @@ fruit2_3 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 시작']
 fruit2_4 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 끝']
 df_13 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
 df_130 = df_13[df_13['Year']==yearslider]
-if fruit2_4[0]-fruit2_3[0] == 2:
+if (fruit2_4[0]-fruit2_3[0]) == 2:
     df_131 = df_130[df_130['Mon']==fruit2_3[0]]
     df_132 = df_130[df_130['Mon']==fruit2_3[0]+1]
     df_231 = df_130[df_130['Mon']==fruit2_4[0]]
     df_133 = pd.concat([df_131,df_132,df_231])  
-elif fruit2_4[0]-fruit2_3[0] == 4:
+elif (fruit2_4[0]-fruit2_3[0]) == 4:
     df_131 = df_130[df_130['Mon']==fruit2_3[0]]
     df_132 = df_130[df_130['Mon']==fruit2_3[0]+1]
     df_1321 = df_130[df_130['Mon']==fruit2_3[0]+2]
