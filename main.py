@@ -46,6 +46,7 @@ with col1_1:
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig.gca().add_artist(centre_circle)
     ax.text(-0.,0,data_frame['score'], size = 20, horizontalalignment='center', verticalalignment='center')
+    plt.title('Total', size = 20)
     st.pyplot(fig)
 with col1_2:
     fig2 = plt.figure(2)
@@ -55,7 +56,7 @@ with col1_2:
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig2.gca().add_artist(centre_circle)
     ax2.text(-0.,0,data_frame['nonscore'], size = 20, horizontalalignment='center', verticalalignment='center')
-    plt.title('seedling', size = 20)
+    plt.title('Year', size = 20)
     st.pyplot(fig2)
 
     fig3 = plt.figure(3)
@@ -65,7 +66,7 @@ with col1_2:
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig3.gca().add_artist(centre_circle)
     ax3.text(-0.,0,data_frame['score'], size = 20, horizontalalignment='center', verticalalignment='center')
-    plt.title('growth', size = 15)
+    plt.title('Growth', size = 20)
     st.pyplot(fig3)
 
 
