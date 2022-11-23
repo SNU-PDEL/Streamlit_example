@@ -80,15 +80,19 @@ fruit2 = pd.read_csv('fruit2.csv', encoding = 'cp949')
 fruit2_1 = fruit2[fruit2['작물명']== cultiva_selectbox]['연평균 최저기온']
 fruit2_2 = fruit2[fruit2['작물명']== cultiva_selectbox]['연평균 최고기온']
 df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'_new2.csv').values[0])
-df2 = df.groupby('Year').mean()['tmax'] 
-df3 = df.groupby('Year').mean()['tmin']
+tavgmin = []
+tavgmax = []
+for i in range(len(df)):
+    tavgmin.append(fruit2_1.values[0])
+    tavgmax.append(fruit2_2.values[0])
+df1_1 = pd.concat([df,pd.Series(tavgmin).rename('연평균 최저기온'),pd.Series(tavgmax).rename('연평균 최고기온')],axis = 1)
+df2 = df1_1.groupby('Year').mean()[['tmax','tmin','연평균 최저기온','연평균 최고기온']] 
 fig = plt.figure(figsize=(11,4))
-plt.plot(df2, color = 'red')
-plt.plot(df3, color = 'blue')
-#plt.plot(fruit2_1, color = 'lightgray')
-#plt.plot(fruit2_2, color = 'lightgray')
-
-#plt.legend(['tmax','tmin','optimal_tmin','optimal_tmax'])
+plt.plot(df2['tmax'], color = 'red')
+plt.plot(df2['tmin'], color = 'blue')
+plt.plot(df2['연평균 최저기온'], color = 'lightgray')
+plt.plot(df2['연평균 최고기온'], color = 'lightgray')
+plt.legend(['tmax','tmin','optimal_tmin','optimal_tmax'])
 st.pyplot(fig)
 
 
