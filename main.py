@@ -144,51 +144,51 @@ st.subheader('')
 st.subheader(cultiva_selectbox + ' 생육시기에서 적정 생육 기온과 ' + location_selectbox + '의 기온 비교')
 st3 = pd.read_csv('st3.csv')
 fruit2 = pd.read_csv('fruit2.csv', encoding = 'cp949')
-fruit2_1 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 최저기온']
-fruit2_2 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 최고기온']
-fruit2_3 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 시작']
-fruit2_4 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 끝']
+fruit5_1 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 최저기온']
+fruit5_2 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 최고기온']
+fruit5_3 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 시작']
+fruit5_4 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 끝']
 df_13 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
 df_130 = df_13[df_13['Year']==2012]
-if (fruit2_4[0]-fruit2_3[0]) == 2:
-    df_131 = df_130[df_130['Mon']==fruit2_3[0]]
-    df_132 = df_130[df_130['Mon']==fruit2_3[0]+1]
-    df_231 = df_130[df_130['Mon']==fruit2_4[0]]
+if (fruit5_4[0]-fruit5_3[0]) == 2:
+    df_131 = df_130[df_130['Mon']==fruit5_3[0]]
+    df_132 = df_130[df_130['Mon']==fruit5_3[0]+1]
+    df_231 = df_130[df_130['Mon']==fruit5_4[0]]
     df_133 = pd.concat([df_131,df_132,df_231])  
-elif (fruit2_4[0]-fruit2_3[0]) == 4:
-    df_131 = df_130[df_130['Mon']==fruit2_3[0]]
-    df_132 = df_130[df_130['Mon']==fruit2_3[0]+1]
-    df_1321 = df_130[df_130['Mon']==fruit2_3[0]+2]
-    df_1322 = df_130[df_130['Mon']==fruit2_3[0]+3]
-    df_231 = df_130[df_130['Mon']==fruit2_4[0]]
+elif (fruit5_4[0]-fruit5_3[0]) == 4:
+    df_131 = df_130[df_130['Mon']==fruit5_3[0]]
+    df_132 = df_130[df_130['Mon']==fruit5_3[0]+1]
+    df_1321 = df_130[df_130['Mon']==fruit5_3[0]+2]
+    df_1322 = df_130[df_130['Mon']==fruit5_3[0]+3]
+    df_231 = df_130[df_130['Mon']==fruit5_4[0]]
     df_133 = pd.concat([df_131,df_132,df_1321, df_1322, df_231])
 else :
-    df_131 = df_130[df_130['Mon']==fruit2_3[0]]
-    df_132 = df_130[df_130['Mon']==fruit2_3[0]+1]
-    df_1321 = df_130[df_130['Mon']==fruit2_3[0]+2]
-    df_1322 = df_130[df_130['Mon']==fruit2_3[0]+3]
-    df_1323 = df_130[df_130['Mon']==fruit2_3[0]+4]
-    df_1324 = df_130[df_130['Mon']==fruit2_3[0]+5]
-    df_231 = df_130[df_130['Mon']==fruit2_4[0]]
+    df_131 = df_130[df_130['Mon']==fruit5_3[0]]
+    df_132 = df_130[df_130['Mon']==fruit5_3[0]+1]
+    df_1321 = df_130[df_130['Mon']==fruit5_3[0]+2]
+    df_1322 = df_130[df_130['Mon']==fruit5_3[0]+3]
+    df_1323 = df_130[df_130['Mon']==fruit5_3[0]+4]
+    df_1324 = df_130[df_130['Mon']==fruit5_3[0]+5]
+    df_231 = df_130[df_130['Mon']==fruit5_4[0]]
     df_133 = pd.concat([df_131,df_132,df_1321, df_1322,df_1323, df_1324, df_231])
 df_133 = df_133.reset_index()
 tavgmin = []
 tavgmax = []
 for i in range(len(df_133)):
-    tavgmin.append(fruit2_1.values[0])
-    tavgmax.append(fruit2_2.values[0])
+    tavgmin.append(fruit5_1.values[0])
+    tavgmax.append(fruit5_2.values[0])
 df_134 = pd.concat([df_133,pd.Series(tavgmin).rename('생육 최저기온'),pd.Series(tavgmax).rename('생육 최고기온')],axis = 1)
 fig = plt.figure(figsize=(11,4))
 plt.plot(df_134['tmax'], color = 'red')
 plt.plot(df_134['tmin'], color = 'blue')
 plt.plot(df_134['생육 최저기온'], color = 'lightgray')
 plt.plot(df_134['생육 최고기온'], color = 'lightgray')
-if fruit2_4[0]-fruit2_3[0] == 2:
-    plt.xticks(np.arange(0,(fruit2_4[0]-fruit2_3[0]+1)*30,15), labels = ['Mar','','Jun','','Jul','',''])
-elif fruit2_4[0]-fruit2_3[0] == 4:
-    plt.xticks(np.arange(0,(fruit2_4[0]-fruit2_3[0]+1)*30,15), labels = ['Mar','','Jun','','Jul','','Aug','','Sep',''])
+if fruit5_4[0]-fruit5_3[0] == 2:
+    plt.xticks(np.arange(0,(fruit5_4[0]-fruit5_3[0]+1)*30,15), labels = ['Mar','','Jun','','Jul','',''])
+elif fruit5_4[0]-fruit5_3[0] == 4:
+    plt.xticks(np.arange(0,(fruit5_4[0]-fruit5_3[0]+1)*30,15), labels = ['Mar','','Jun','','Jul','','Aug','','Sep',''])
 else:
-    plt.xticks(np.arange(0,(fruit2_4[0]-fruit2_3[0]+1)*30,15), labels = ['Apr','','Mar','','Jun','','Jul','','Aug','','Sep','','Oct',''])
+    plt.xticks(np.arange(0,(fruit5_4[0]-fruit5_3[0]+1)*30,15), labels = ['Apr','','Mar','','Jun','','Jul','','Aug','','Sep','','Oct',''])
 plt.fill_between(x = df_134.index, y1= df_134['생육 최저기온'],y2 =df_134['tmin'], where = df_134['tmin'] < df_134['생육 최저기온'],interpolate= True,  facecolor = 'blue', alpha = 0.5)
 plt.fill_between(x = df_134.index, y1= df_134['생육 최고기온'],y2 =df_134['tmax'], where = df_134['tmax'] > df_134['생육 최고기온'],interpolate= True,  facecolor = 'red', alpha = 0.5)
 plt.fill_between(x = df_134.index, y1= df_134['생육 최고기온'],y2 =df_134['tmin'], where = df_134['tmin'] > df_134['생육 최고기온'],interpolate= True,  facecolor = 'white', alpha = 1)
