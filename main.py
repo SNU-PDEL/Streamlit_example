@@ -58,7 +58,7 @@ else:
     first_score = (fruit2_1-min2012)/(fruit2_1 - fruit2_2)*100
     nansu1 = np.exp(abs(max2012 - fruit2_1)/10) 
     total_score = first_score - nansu1
-data_frame2 = {'total_score' : total_score,'nonscore' : 100-total_score}
+data_frame2 = {'total_score' : round(total_score,2),'nonscore' : 100-round(total_score,2)}
 data_frame = {'score' : 70,'nonscore' : 30}
 col1_1, col1_2 = st.columns([2,1])
 with col1_1:
