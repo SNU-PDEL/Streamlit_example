@@ -150,7 +150,7 @@ fruit5_3 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 시작']
 fruit5_4 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 끝']
 df_13 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
 df_130 = df_13[df_13['Year']==2012]
-if (int(fruit5_4[0])-int(fruit5_3[0])) == 2:
+if (fruit2[fruit2['작물명']== cultiva_selectbox]['생육 끝'][0]-fruit2[fruit2['작물명']== cultiva_selectbox]['생육 시작'][0]) == 2:
     df_131 = df_130[df_130['Mon']==fruit5_3[0]]
     df_132 = df_130[df_130['Mon']==fruit5_3[0]+1]
     df_231 = df_130[df_130['Mon']==fruit5_4[0]]
