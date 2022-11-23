@@ -62,19 +62,19 @@ with col1_2:
     st.pyplot(fig3)
 
 
-st.subheader(location_selectbox + '의 최고기온, 최저기온')
-st3 = pd.read_csv('st3.csv')
-df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'_new2.csv').values[0])
-df2 = df.groupby('Year').max()['tmax']
-df3 = df.groupby('Year').min()['tmin']
-df4 = pd.concat([df2,df3], axis = 1)
-fig = plt.figure(figsize=(11,4))
-plt.plot(df4['tmax'], color = 'red')
-plt.plot(df4['tmin'], color = 'blue')
-plt.legend(['tmax','tmin'])
-st.pyplot(fig)
+#st.subheader(location_selectbox + '의 최고기온, 최저기온')
+#st3 = pd.read_csv('st3.csv')
+#df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'_new2.csv').values[0])
+#df2 = df.groupby('Year').max()['tmax']
+#df3 = df.groupby('Year').min()['tmin']
+#df4 = pd.concat([df2,df3], axis = 1)
+#fig = plt.figure(figsize=(11,4))
+#plt.plot(df4['tmax'], color = 'red')
+#plt.plot(df4['tmin'], color = 'blue')
+#plt.legend(['tmax','tmin'])
+#st.pyplot(fig)
 
-st.subheader(cultiva_selectbox + ' 의 적정 연간평균 기온과 ' + location_selectbox + '의 연간 기온 비교')
+st.subheader(cultiva_selectbox + '의 적정 연간평균 기온과 ' + location_selectbox + '의 연간 기온 비교')
 st3 = pd.read_csv('st3.csv')
 fruit2 = pd.read_csv('fruit2.csv', encoding = 'cp949')
 fruit2_1 = fruit2[fruit2['작물명']== cultiva_selectbox]['연평균 최저기온']
@@ -97,66 +97,208 @@ plt.fill_between(x = df2.index, y1= df2['연평균 최저기온'],y2 =df2['tmin'
 plt.fill_between(x = df2.index, y1= df2['연평균 최고기온'],y2 =df2['tmax'], where = df2['tmax'] > df2['연평균 최고기온'],interpolate= True,  facecolor = 'red', alpha = 0.5)
 st.pyplot(fig)
 
-
-st.subheader('')
-df_1 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
-df_2 = df_1.groupby(['Year','Mon']).max()['tmax']
-df_3 = df_1.groupby(['Year','Mon']).min()['tmin']
-df_4 = pd.concat([df_2,df_3], axis = 1)
-fruit = pd.read_csv('fruit.csv', encoding = 'cp949')
-st.subheader(cultiva_selectbox + ' 육묘시기에 대한 ' + location_selectbox + '의 기온 변화 추이 (' + str((fruit[fruit['작물명']== cultiva_selectbox]['육묘 시작']).values[0])+ '월 ~ ' + str((fruit[fruit['작물명']== cultiva_selectbox]['육묘 끝']).values[0]) + '월)')
-if int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 시작']) == 0:
-    fruit2 = (df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작']),axis = 0, level = 1) + df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 끝']),axis = 0, level = 1))/2
-elif int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 시작']) == 1:
-    fruit2 = (df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작']),axis = 0, level = 1) + df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 끝']),axis = 0, level = 1))/2
-elif int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['육묘 시작']) == 2:
-    fruit2 = (df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작']),axis = 0, level = 1) + df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작'])+1,axis = 0, level = 1) + df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 끝']),axis = 0, level = 1))/3
-else:
-    fruit2 = (df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작']),axis = 0, level = 1) + df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작'])+1,axis = 0, level = 1) + df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 시작'])+2,axis = 0, level = 1) + df_4.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 끝']),axis = 0, level = 1))/4
-
-fruit2['optimal tmin'] = int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 최저기온'])
-fruit2['optimal tmax'] = int(fruit[fruit['작물명']==cultiva_selectbox]['육묘 최고기온'])
-fig = plt.figure(figsize=(11,4))
-plt.plot(fruit2['optimal tmin'], color = 'lightgray')
-plt.plot(fruit2['optimal tmax'], color = 'lightgray')
-plt.plot(fruit2['tmax'], color = 'red')
-plt.plot(fruit2['tmin'], color = 'blue')
-
-plt.fill_between(x = fruit2.index, y1= fruit2['optimal tmin'],y2 =fruit2['tmin'], where = fruit2['tmin'] < fruit2['optimal tmin'],interpolate= True,  facecolor = 'blue', alpha = 0.5)
-plt.fill_between(x = fruit2.index, y1= fruit2['optimal tmax'],y2 =fruit2['tmax'], where = fruit2['tmax'] > fruit2['optimal tmax'],interpolate= True,  facecolor = 'red', alpha = 0.5)
-
-plt.ylim(bottom = 0)
-plt.legend(['optimal tmax','optimal tmin','tmax','tmin'])
-st.pyplot(fig)
-
 ################################################################
 st.subheader('')
 st.subheader(cultiva_selectbox + ' 생육시기에 대한 ' + location_selectbox + '의 기온 변화 추이 (' + str((fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']).values[0])+ '월 ~ ' + str((fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']).values[0]) + '월)')
+st3 = pd.read_csv('st3.csv')
+fruit2 = pd.read_csv('fruit2.csv', encoding = 'cp949')
+fruit2_1 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 최저기온']
+fruit2_2 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 최고기온']
 df_13 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
-df_23 = df_13.groupby(['Year','Mon']).mean()
-fruit = pd.read_csv('fruit.csv', encoding = 'cp949')
-if int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']) == 0:
-    fruit23 = (df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) + df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1))/2
-elif int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']) == 1:
-    fruit23 = (df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) + df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1))/2
-elif int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']) == 2:
-    fruit23 = (df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) + df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1) + df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1))/3
-else:
-    fruit23 = (df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) + df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1) + df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 시작'])+2,axis = 0, level = 1) + df_23.xs(int(fruit[fruit['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1))/4
+df_23 = df_13.groupby(['Year','Mon']).max()
+df_33 = df_13.groupby(['Year','Mon']).min()
 
-fruit23['optimal tmin'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 최저기온'])
-fruit23['optimal tmax'] = int(fruit[fruit['작물명']==cultiva_selectbox]['생육 최고기온'])
+if int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']) == 2:
+    fruit23 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) 
+    fruit24 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1)
+    fruit25 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1)
+    fruit33 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) 
+    fruit34 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1)
+    fruit35 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1)    
+    realtmax = []
+    for i in range(len(fruit23)):
+        realtmax.append(fruit23.iloc[i]['tmax'])
+        realtmax.append(fruit24.iloc[i]['tmax'])
+        realtmax.append(fruit25.iloc[i]['tmax'])
+    realtmin = []    
+    for i in range(len(fruit23)):
+        realtmin.append(fruit33.iloc[i]['tmin'])
+        realtmin.append(fruit34.iloc[i]['tmin'])
+        realtmin.append(fruit35.iloc[i]['tmin'])
+    dfYear= []
+    for i in fruit23.index:
+        dfYear.append(i)
+        dfYear.append(i)
+        dfYear.append(i)
+    dfMonth = []
+    for i in fruit23.index:
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 시작']))
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 시작'])+1)
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 끝']))
+    realfruit = pd.DataFrame({'Year' : dfYear, 'Mon': dfMonth, 'tmax' : realtmax, 'tmin' : realtmin})        
+
+elif int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']) == 4:
+    fruit23 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) 
+    fruit24 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1)
+    fruit25 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+2,axis = 0, level = 1)
+    fruit26 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+3,axis = 0, level = 1)
+    fruit27 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1)
+    fruit33 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) 
+    fruit34 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1)
+    fruit35 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+2,axis = 0, level = 1)
+    fruit36 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+3,axis = 0, level = 1)
+    fruit37 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1)
+    
+    realtmax = []
+    for i in range(len(fruit23)):
+        realtmax.append(fruit23.iloc[i]['tmax'])
+        realtmax.append(fruit24.iloc[i]['tmax'])
+        realtmax.append(fruit25.iloc[i]['tmax'])
+        realtmax.append(fruit26.iloc[i]['tmax'])
+        realtmax.append(fruit27.iloc[i]['tmax'])
+    realtmin = []    
+    for i in range(len(fruit23)):
+        realtmin.append(fruit33.iloc[i]['tmin'])
+        realtmin.append(fruit34.iloc[i]['tmin'])
+        realtmin.append(fruit35.iloc[i]['tmin'])
+        realtmin.append(fruit36.iloc[i]['tmin'])
+        realtmin.append(fruit37.iloc[i]['tmin'])
+    dfYear= []
+    for i in fruit23.index:
+        dfYear.append(i)
+        dfYear.append(i)
+        dfYear.append(i)
+        dfYear.append(i)
+        dfYear.append(i)
+    dfMonth = []
+    for i in fruit23.index:
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 시작']))
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 시작'])+1)
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 시작'])+2)
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 시작'])+3)
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 끝']))
+    realfruit = pd.DataFrame({'Year' : dfYear, 'Mon': dfMonth, 'tmax' : realtmax, 'tmin' : realtmin})        
+
+elif int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']) == 5:
+    fruit23 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) 
+    fruit24 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1)
+    fruit25 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+2,axis = 0, level = 1)
+    fruit26 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+3,axis = 0, level = 1)
+    fruit27 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+4,axis = 0, level = 1)
+    fruit28 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1)
+    fruit33 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) 
+    fruit34 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1)
+    fruit35 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+2,axis = 0, level = 1)
+    fruit36 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+3,axis = 0, level = 1)
+    fruit37 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+4,axis = 0, level = 1)
+    fruit38 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1)
+    
+    realtmax = []
+    for i in range(len(fruit23)):
+        realtmax.append(fruit23.iloc[i]['tmax'])
+        realtmax.append(fruit24.iloc[i]['tmax'])
+        realtmax.append(fruit25.iloc[i]['tmax'])
+        realtmax.append(fruit26.iloc[i]['tmax'])
+        realtmax.append(fruit27.iloc[i]['tmax'])
+        realtmax.append(fruit28.iloc[i]['tmax'])
+    realtmin = []    
+    for i in range(len(fruit23)):
+        realtmin.append(fruit33.iloc[i]['tmin'])
+        realtmin.append(fruit34.iloc[i]['tmin'])
+        realtmin.append(fruit35.iloc[i]['tmin'])
+        realtmin.append(fruit36.iloc[i]['tmin'])
+        realtmin.append(fruit37.iloc[i]['tmin'])
+        realtmin.append(fruit38.iloc[i]['tmin'])
+    dfYear= []
+    for i in fruit23.index:
+        dfYear.append(i)
+        dfYear.append(i)
+        dfYear.append(i)
+        dfYear.append(i)
+        dfYear.append(i)
+        dfYear.append(i)
+    dfMonth = []
+    for i in fruit23.index:
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 시작']))
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 시작'])+1)
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 시작'])+2)
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 시작'])+3)
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 시작'])+4)
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 끝']))
+    realfruit = pd.DataFrame({'Year' : dfYear, 'Mon': dfMonth, 'tmax' : realtmax, 'tmin' : realtmin})        
+
+else:
+    fruit23 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) 
+    fruit24 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1)
+    fruit25 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+2,axis = 0, level = 1)
+    fruit26 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+3,axis = 0, level = 1)
+    fruit27 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+4,axis = 0, level = 1)
+    fruit28 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+5,axis = 0, level = 1)
+    fruit29 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1)
+    fruit33 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) 
+    fruit34 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1)
+    fruit35 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+2,axis = 0, level = 1)
+    fruit36 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+3,axis = 0, level = 1)
+    fruit37 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+4,axis = 0, level = 1)
+    fruit38 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+5,axis = 0, level = 1)
+    fruit39 = df_33.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1)
+    
+    realtmax = []
+    for i in range(len(fruit23)):
+        realtmax.append(fruit23.iloc[i]['tmax'])
+        realtmax.append(fruit24.iloc[i]['tmax'])
+        realtmax.append(fruit25.iloc[i]['tmax'])
+        realtmax.append(fruit26.iloc[i]['tmax'])
+        realtmax.append(fruit27.iloc[i]['tmax'])
+        realtmax.append(fruit28.iloc[i]['tmax'])
+        realtmax.append(fruit29.iloc[i]['tmax'])
+    realtmin = []    
+    for i in range(len(fruit23)):
+        realtmin.append(fruit33.iloc[i]['tmin'])
+        realtmin.append(fruit34.iloc[i]['tmin'])
+        realtmin.append(fruit35.iloc[i]['tmin'])
+        realtmin.append(fruit36.iloc[i]['tmin'])
+        realtmin.append(fruit37.iloc[i]['tmin'])
+        realtmin.append(fruit38.iloc[i]['tmin'])
+        realtmin.append(fruit39.iloc[i]['tmin'])
+    dfYear= []
+    for i in fruit23.index:
+        dfYear.append(i)
+        dfYear.append(i)
+        dfYear.append(i)
+        dfYear.append(i)
+        dfYear.append(i)
+        dfYear.append(i)
+        dfYear.append(i)
+    dfMonth = []
+    for i in fruit23.index:
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 시작']))
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 시작'])+1)
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 시작'])+2)
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 시작'])+3)
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 시작'])+4)
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 시작'])+5)
+        dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 끝']))
+    realfruit = pd.DataFrame({'Year' : dfYear, 'Mon': dfMonth, 'tmax' : realtmax, 'tmin' : realtmin})        
+
+realomin = []
+for i in range(len(realfruit)):
+    realomin.append(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 최저기온']))
+realomax = []
+for i in range(len(realfruit)):
+    realomax.append(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 최고기온']))
+realfruit['optimal tmin'] = realomin
+realfruit['optimal tmax'] = realomax
 
 fig = plt.figure(figsize=(11,4))
-plt.plot(fruit23['optimal tmin'], color = 'lightgray')
-plt.plot(fruit23['optimal tmax'], color = 'lightgray')
-plt.plot(fruit23['tmax'], color = 'red')
-plt.plot(fruit23['tmin'], color = 'blue')
+plt.plot(realfruit['optimal tmin'], color = 'lightgray')
+plt.plot(realfruit['optimal tmax'], color = 'lightgray')
+plt.plot(realfruit['tmax'], color = 'red')
+plt.plot(realfruit['tmin'], color = 'blue')
 
-plt.fill_between(x = fruit23.index, y1= fruit23['optimal tmin'],y2 =fruit23['tmin'], where = (fruit23['tmin'] < fruit23['optimal tmin']),interpolate= True, facecolor = 'blue', alpha = 0.5)
-plt.fill_between(x = fruit23.index, y1= fruit23['optimal tmax'],y2 =fruit23['tmax'], where = (fruit23['tmax'] > fruit23['optimal tmax']),interpolate= True, facecolor = 'red', alpha = 0.5)
+plt.fill_between(x = realfruit['Year'], y1= realfruit['optimal tmin'],y2 =realfruit['tmin'], where = (realfruit['Year']['tmin'] < realfruit['Year']['optimal tmin']),interpolate= True, facecolor = 'blue', alpha = 0.5)
+plt.fill_between(x = realfruit['Year'], y1= realfruit['optimal tmax'],y2 =realfruit['tmax'], where = (realfruit['Year']['tmax'] > realfruit['Year']['optimal tmax']),interpolate= True, facecolor = 'red', alpha = 0.5)
 
-plt.ylim(bottom = 0)
 plt.legend(['optimal tmax','optimal tmin','tmax','tmin'])
 st.pyplot(fig)
 
