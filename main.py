@@ -114,6 +114,7 @@ for i in range(len(df2_1)):
     tavgmin.append(fruit2_1.values[0])
     tavgmax.append(fruit2_2.values[0])
 df2_2 = pd.concat([df2_1,pd.Series(tavgmin).rename('연평균 최저기온'),pd.Series(tavgmax).rename('연평균 최고기온')],axis = 1)
+fig = plt.figure(figsize=(11,4))
 plt.plot(df2_2['tmax'], color = 'red')
 plt.plot(df2_2['tmin'], color = 'blue')
 plt.plot(df2_2['연평균 최저기온'], color = 'lightgray')
