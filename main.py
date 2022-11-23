@@ -63,7 +63,67 @@ else:
     nansu1 = np.exp(abs(max2012 - fruit2_1)/10) 
     total_score = first_score - nansu1
 
+####################################
+st3 = pd.read_csv('st3.csv')
+fruit2 = pd.read_csv('fruit2.csv', encoding = 'cp949')
+fruit2_1 = fruit2[fruit2['작물명']== '사과']['생육 최저기온'].values[0]
+fruit2_2 = fruit2[fruit2['작물명']== '사과']['생육 최고기온'].values[0]
+fruit2_3 = fruit2[fruit2['작물명']== '사과']['생육 시작'].values[0]
+fruit2_4 = fruit2[fruit2['작물명']== '사과']['생육 끝'].values[0]
+df_13 = pd.read_csv((st3[st3['kEname']=='강릉']['number']+'_new2.csv').values[0])
+df_130 = df_13[df_13['Year']==2002]
+if (fruit2_4-fruit2_3) == 2:
+    df_131 = df_130[df_130['Mon']==fruit2_3]
+    df_132 = df_130[df_130['Mon']==fruit2_3+1]
+    df_231 = df_130[df_130['Mon']==fruit2_4]
+    df_133 = pd.concat([df_131,df_132,df_231])  
+elif (fruit2_4-fruit2_3) == 4:
+    df_131 = df_130[df_130['Mon']==fruit2_3]
+    df_132 = df_130[df_130['Mon']==fruit2_3+1]
+    df_1321 = df_130[df_130['Mon']==fruit2_3+2]
+    df_1322 = df_130[df_130['Mon']==fruit2_3+3]
+    df_231 = df_130[df_130['Mon']==fruit2_4]
+    df_133 = pd.concat([df_131,df_132,df_1321, df_1322, df_231])
+else :
+    df_131 = df_130[df_130['Mon']==fruit2_3]
+    df_132 = df_130[df_130['Mon']==fruit2_3+1]
+    df_1321 = df_130[df_130['Mon']==fruit2_3+2]
+    df_1322 = df_130[df_130['Mon']==fruit2_3+3]
+    df_1323 = df_130[df_130['Mon']==fruit2_3+4]
+    df_1324 = df_130[df_130['Mon']==fruit2_3+5]
+    df_231 = df_130[df_130['Mon']==fruit2_4]
+    df_133 = pd.concat([df_131,df_132,df_1321, df_1322,df_1323, df_1324, df_231])
+df_133 = df_133.reset_index()
+tavgmin = []
+tavgmax = []
+for i in range(len(df_133)):
+    tavgmin.append(fruit2_1)
+    tavgmax.append(fruit2_2)
+df_134 = pd.concat([df_133,pd.Series(tavgmin).rename('생육 최저기온'),pd.Series(tavgmax).rename('생육 최고기온')],axis = 1)
+
+max2013 = df_134['tmax'].mean()
+min2013 = df_134['tmin'].mean()
+
+if (max2013 >= fruit2_1) & (min2013 <= fruit2_2):
+    first_score = 100
+    nansu1 = np.exp(abs(max2013 - fruit2_1)/10) 
+    nansu2 = np.exp(abs(min2013 - fruit2_2)/10)
+    nansu = nansu1 + nansu2
+    total_score2 = first_score - nansu
+elif (max2013 >= fruit2_1) & (min2013 >= fruit2_1):
+    first_score = 0
+    total_score2 = first_score
+elif (max2013<=fruit2_1) & (max2013>=fruit2_2) & (min2013<= fruit2_2):
+    first_score = (max2013-fruit2_2)/(fruit2_1 - fruit2_2)*100
+    nansu1 = np.exp(abs(min2013 - fruit2_2)/10)
+    total_score2 = first_score - nansu1
+else:
+    first_score = (fruit2_1-min2013)/(fruit2_1 - fruit2_2)*100
+    nansu1 = np.exp(abs(max2013 - fruit2_1)/10) 
+    total_score2 = first_score - nansu1
+
 data_frame2 = {'total_score' : round(total_score,2),'nonscore' : 100-round(total_score,2)}
+data_frame3 = {'total_score2' : round(total_score2,2),'nonscore' : 100-round(total_score,2)}
 data_frame = {'score' : 70,'nonscore' : 30}
 
 col1_1, col1_2 = st.columns([2,1])
@@ -91,10 +151,10 @@ with col1_2:
     fig3 = plt.figure(3)
     ax3 = fig3.add_subplot()
     colors = ['lightblue','white']
-    ax3.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
+    ax3.pie([data_frame3['total_score2'],data_frame3['nonscore']],colors = colors, explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig3.gca().add_artist(centre_circle)
-    ax3.text(-0.,0,data_frame['score'], size = 20, horizontalalignment='center', verticalalignment='center')
+    ax3.text(-0.,0,data_frame3['total_score2'], size = 20, horizontalalignment='center', verticalalignment='center')
     plt.title('Growth', size = 20)
     st.pyplot(fig3)
 
