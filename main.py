@@ -183,12 +183,12 @@ plt.plot(df_134['tmax'], color = 'red')
 plt.plot(df_134['tmin'], color = 'blue')
 plt.plot(df_134['생육 최저기온'], color = 'lightgray')
 plt.plot(df_134['생육 최고기온'], color = 'lightgray')
-if fruit5_4[0]-fruit5_3[0] == 2:
-    plt.xticks(np.arange(0,(fruit5_4[0]-fruit5_3[0]+1)*30,15), labels = ['Mar','','Jun','','Jul','',''])
-elif fruit5_4[0]-fruit5_3[0] == 4:
-    plt.xticks(np.arange(0,(fruit5_4[0]-fruit5_3[0]+1)*30,15), labels = ['Mar','','Jun','','Jul','','Aug','','Sep',''])
+if fruit5_4.values[0]-fruit5_3.values[0] == 2:
+    plt.xticks(np.arange(0,(fruit5_4.values[0]-fruit5_3.values[0]+1)*30,15), labels = ['Mar','','Jun','','Jul','',''])
+elif fruit5_4.values[0]-fruit5_3.values[0] == 4:
+    plt.xticks(np.arange(0,(fruit5_4.values[0]-fruit5_3.values[0]+1)*30,15), labels = ['Mar','','Jun','','Jul','','Aug','','Sep',''])
 else:
-    plt.xticks(np.arange(0,(fruit5_4[0]-fruit5_3[0]+1)*30,15), labels = ['Apr','','Mar','','Jun','','Jul','','Aug','','Sep','','Oct',''])
+    plt.xticks(np.arange(0,(fruit5_4.values[0]-fruit5_3.values[0]+1)*30,15), labels = ['Apr','','Mar','','Jun','','Jul','','Aug','','Sep','','Oct',''])
 plt.fill_between(x = df_134.index, y1= df_134['생육 최저기온'],y2 =df_134['tmin'], where = df_134['tmin'] < df_134['생육 최저기온'],interpolate= True,  facecolor = 'blue', alpha = 0.5)
 plt.fill_between(x = df_134.index, y1= df_134['생육 최고기온'],y2 =df_134['tmax'], where = df_134['tmax'] > df_134['생육 최고기온'],interpolate= True,  facecolor = 'red', alpha = 0.5)
 plt.fill_between(x = df_134.index, y1= df_134['생육 최고기온'],y2 =df_134['tmin'], where = df_134['tmin'] > df_134['생육 최고기온'],interpolate= True,  facecolor = 'white', alpha = 1)
