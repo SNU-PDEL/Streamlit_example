@@ -108,7 +108,7 @@ df_13 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').va
 df_23 = df_13.groupby(['Year','Mon']).max()
 df_33 = df_13.groupby(['Year','Mon']).min()
 
-if int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']) == 2:
+if int(fruit2[fruit2['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit2[fruit2['작물명']== cultiva_selectbox]['생육 시작']) == 2:
     fruit23 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) 
     fruit24 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1)
     fruit25 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 끝']),axis = 0, level = 1)
@@ -137,7 +137,7 @@ if int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[
         dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 끝']))
     realfruit = pd.DataFrame({'Year' : dfYear, 'Mon': dfMonth, 'tmax' : realtmax, 'tmin' : realtmin})        
 
-elif int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']) == 4:
+elif int(fruit2[fruit2['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit2[fruit2['작물명']== cultiva_selectbox]['생육 시작']) == 4:
     fruit23 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) 
     fruit24 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1)
     fruit25 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+2,axis = 0, level = 1)
@@ -179,7 +179,7 @@ elif int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(frui
         dfMonth.append(int(fruit2[fruit2['작물명']=='사과']['생육 끝']))
     realfruit = pd.DataFrame({'Year' : dfYear, 'Mon': dfMonth, 'tmax' : realtmax, 'tmin' : realtmin})        
 
-elif int(fruit[fruit['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit[fruit['작물명']== cultiva_selectbox]['생육 시작']) == 5:
+elif int(fruit2[fruit2['작물명']== cultiva_selectbox]['생육 끝']) - int(fruit2[fruit2['작물명']== cultiva_selectbox]['생육 시작']) == 5:
     fruit23 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작']),axis = 0, level = 1) 
     fruit24 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+1,axis = 0, level = 1)
     fruit25 = df_23.xs(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 시작'])+2,axis = 0, level = 1)
