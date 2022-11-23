@@ -126,7 +126,10 @@ plt.plot(df2_2['tmin'], color = 'blue')
 plt.plot(df2_2['연평균 최저기온'], color = 'lightgray')
 plt.plot(df2_2['연평균 최고기온'], color = 'lightgray')
 plt.xticks(np.arange(0,365,15), labels = ['Jan','','Feb','','Mar','','Apr','','May','','Jun','','Jul','','Aug','','Sep','','Oct','','Nov','','Dec','',''])
-
+plt.fill_between(x = df2_2.index, y1= df2_2['연평균 최저기온'],y2 =df2_2['tmin'], where = df2_2['tmin'] < df2_2['연평균 최저기온'],interpolate= True,  facecolor = 'blue', alpha = 0.5)
+plt.fill_between(x = df2_2.index, y1= df2_2['연평균 최고기온'],y2 =df2_2['tmax'], where = df2_2['tmax'] > df2_2['연평균 최고기온'],interpolate= True,  facecolor = 'red', alpha = 0.5)
+plt.fill_between(x = df2_2.index, y1= df2_2['연평균 최고기온'],y2 =df2_2['tmin'], where = df2_2['tmin'] > df2_2['연평균 최고기온'],interpolate= True,  facecolor = 'white', alpha = 1)
+plt.fill_between(x = df2_2.index, y1= df2_2['연평균 최저기온'],y2 =df2_2['tmax'], where = df2_2['tmax'] < df2_2['연평균 최저기온'],interpolate= True,  facecolor = 'white', alpha = 1)
 st.pyplot(fig)
 
 
