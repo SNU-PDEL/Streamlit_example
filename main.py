@@ -118,6 +118,7 @@ plt.plot(df2_2['tmax'], color = 'red')
 plt.plot(df2_2['tmin'], color = 'blue')
 plt.plot(df2_2['연평균 최저기온'], color = 'lightgray')
 plt.plot(df2_2['연평균 최고기온'], color = 'lightgray')
+plt.xticks(df2_2['Mon'])
 st.pyplot(fig)
 
 
