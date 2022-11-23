@@ -125,7 +125,7 @@ plt.plot(df2_2['tmax'], color = 'red')
 plt.plot(df2_2['tmin'], color = 'blue')
 plt.plot(df2_2['연평균 최저기온'], color = 'lightgray')
 plt.plot(df2_2['연평균 최고기온'], color = 'lightgray')
-plt.xticks(df2_2.index, labels = df2_2['date'])
+plt.xticks(np.arange(0,365,15), labels = ['Jan','','Feb','','Mar','','Apr','','May','','Jun','','Jul','','Aug','','Sep','','Oct','','Nov','','Dec','',''])
 
 st.pyplot(fig)
 
