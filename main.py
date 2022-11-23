@@ -97,7 +97,6 @@ plt.fill_between(x = df2.index, y1= df2['연평균 최저기온'],y2 =df2['tmin'
 plt.fill_between(x = df2.index, y1= df2['연평균 최고기온'],y2 =df2['tmax'], where = df2['tmax'] > df2['연평균 최고기온'],interpolate= True,  facecolor = 'red', alpha = 0.5)
 plt.fill_between(x = df2.index, y1= df2['연평균 최고기온'],y2 =df2['tmin'], where = df2['tmin'] > df2['연평균 최고기온'],interpolate= True,  facecolor = 'white', alpha = 1)
 plt.fill_between(x = df2.index, y1= df2['연평균 최저기온'],y2 =df2['tmax'], where = df2['tmax'] < df2['연평균 최저기온'],interpolate= True,  facecolor = 'white', alpha = 1)
-
 st.pyplot(fig)
 
 st.subheader(yearslider)
@@ -119,15 +118,7 @@ plt.plot(df2_2['tmax'], color = 'red')
 plt.plot(df2_2['tmin'], color = 'blue')
 plt.plot(df2_2['연평균 최저기온'], color = 'lightgray')
 plt.plot(df2_2['연평균 최고기온'], color = 'lightgray')
-
-
-
-
-
-
-
-
-
+st.pyplot(fig)
 
 
 ################################################################
