@@ -144,7 +144,7 @@ st.subheader('')
 st.subheader(cultiva_selectbox + ' 생육시기에서 적정 생육 기온과 ' + location_selectbox + '의 기온 비교')
 st3 = pd.read_csv('st3.csv')
 fruit2 = pd.read_csv('fruit2.csv', encoding = 'cp949')
-fruit5_1 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 최저기온'][0]
+fruit5_1 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 최저기온'].values[0]
 fruit5_2 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 최고기온'][0]
 fruit5_3 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 시작'][0]
 fruit5_4 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 끝'][0]
