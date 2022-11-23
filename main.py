@@ -193,21 +193,7 @@ plt.fill_between(x = df_134.index, y1= df_134['생육 최저기온'],y2 =df_134[
 plt.fill_between(x = df_134.index, y1= df_134['생육 최고기온'],y2 =df_134['tmax'], where = df_134['tmax'] > df_134['생육 최고기온'],interpolate= True,  facecolor = 'red', alpha = 0.5)
 plt.fill_between(x = df_134.index, y1= df_134['생육 최고기온'],y2 =df_134['tmin'], where = df_134['tmin'] > df_134['생육 최고기온'],interpolate= True,  facecolor = 'white', alpha = 1)
 plt.fill_between(x = df_134.index, y1= df_134['생육 최저기온'],y2 =df_134['tmax'], where = df_134['tmax'] < df_134['생육 최저기온'],interpolate= True,  facecolor = 'white', alpha = 1)
-
 st.pyplot(fig)
-
-
-year = [1980,1981,1982,1983,1984,1985,1986]
-da58 = {'7/1' : [1, 0, 0, 0, 1, 5, 3],
-        '7/2' : [1, 0, 0, 0, 0, 2, 4],
-        '7/3' : [0, 0, 3, 0, 5, 2, 0],
-        '7/4' : [3, 2, 4, 0, 0, 0, 0],
-        '7/5' : [6, 2, 4, 1, 0, 0, 1],
-        '7/6' : [2, 0, 3, 0, 0, 0, 0],
-       }
-
-
-
 
 st.subheader('')
 st.subheader(cultiva_selectbox + '의 육묘 적정 기온구간과 ' + location_selectbox+'의 기온구간의 차이')   
