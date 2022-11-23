@@ -83,12 +83,9 @@ st.pyplot(fig)
 st.subheader(location_selectbox + '의 평균기온')
 st3 = pd.read_csv('st3.csv')
 df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'_new.csv').values[0])
-df2 = df.groupby('Year').mean()['tmax']
-df3 = df.groupby('Year').mean()['tmin']
-df4 = pd.concat([df2,df3], axis = 1)
+df2 = (df.groupby('Year').mean()['tmax'] + df.groupby('Year').mean()['tmin'])/2
 fig = plt.figure(figsize=(11,4))
-plt.plot(df4['tmax'], color = 'red')
-plt.plot(df4['tmin'], color = 'blue')
+plt.plot(df2, color = 'red')
 plt.legend(['tmax','tmin'])
 st.pyplot(fig)
 
