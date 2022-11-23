@@ -38,7 +38,7 @@ with col2:
 
 st3 = pd.read_csv('st3.csv')
 df_13 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'_new2.csv').values[0])
-df_14= df_13[df_13['Year']==2039]
+df_14= df_13[df_13['Year']==yearslider]
 max2012 = df_14['tmax'].mean()
 min2012 = df_14['tmin'].mean()
 fruit2 = pd.read_csv('fruit2.csv', encoding = 'cp949')
