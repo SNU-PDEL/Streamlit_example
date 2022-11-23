@@ -6,6 +6,8 @@ import plotly.express as px
 from PIL import Image
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
+import matplotlib.dates as mdates    
+
 
 st.title('Visualization homework')
 yearslider = st.sidebar.slider('년도',1980,2100)
@@ -113,12 +115,17 @@ for i in range(len(df2_1)):
     tavgmin.append(fruit2_1.values[0])
     tavgmax.append(fruit2_2.values[0])
 df2_2 = pd.concat([df2_1,pd.Series(tavgmin).rename('연평균 최저기온'),pd.Series(tavgmax).rename('연평균 최고기온')],axis = 1)
+name2 = []
+for i in range(len(df2_2)):    
+    name2.append(str(df2_2['Mon'][i]) + '/'+str(df2_2['Day'][i]))
+df2_2['date'] = name2
 fig = plt.figure(figsize=(11,4))
 plt.plot(df2_2['tmax'], color = 'red')
 plt.plot(df2_2['tmin'], color = 'blue')
 plt.plot(df2_2['연평균 최저기온'], color = 'lightgray')
 plt.plot(df2_2['연평균 최고기온'], color = 'lightgray')
-plt.xticks(df2_2['Mon'])
+plt.xticks(df2_2.index, labels = df2_2['date'])
+
 st.pyplot(fig)
 
 
