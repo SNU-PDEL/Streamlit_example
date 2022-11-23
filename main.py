@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
 st.title('Visualization homework')
-st.sidebar.slider('년도',1980,2100)
+yearslider = st.sidebar.slider('년도',1980,2100)
 with st.form(key='Form2'):
     with st.sidebar:
         location_selectbox = st.selectbox('시군구',('강릉','강화','거제','거창','고흥','광주','구미','군산','금산','남원','남해','대관령','대구','대전','목포','문경','밀양','보령','보은','부산','부안','부여','산청','서귀포','서산','서울','성산','속초','수원','양평','여수','영덕','영주','영천','완도','울산','울진','원주','의성','이천','인제','인천','임실','장흥','전주','정읍','제주','제천','진주','천안','청주','추풍령','춘천','충주','통영','포항','합천','해남','홍천'))
@@ -99,6 +99,34 @@ plt.fill_between(x = df2.index, y1= df2['연평균 최고기온'],y2 =df2['tmin'
 plt.fill_between(x = df2.index, y1= df2['연평균 최저기온'],y2 =df2['tmax'], where = df2['tmax'] < df2['연평균 최저기온'],interpolate= True,  facecolor = 'white', alpha = 1)
 
 st.pyplot(fig)
+
+st.subheader(cultiva_selectbox + '의 적정 연간평균 기온과 ' + location_selectbox + '의 연간 기온 비교 (' + yearslider + '년)' )
+st3 = pd.read_csv('st3.csv')
+df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'_new2.csv').values[0])
+df2_1 = df[df['Year']==yearslider]
+fruit2 = pd.read_csv('fruit2.csv', encoding = 'cp949')
+fruit2_1 = fruit2[fruit2['작물명']== cultiva_selectbox]['연평균 최저기온']
+fruit2_2 = fruit2[fruit2['작물명']== cultiva_selectbox]['연평균 최고기온']
+tavgmin = []
+tavgmax = []
+for i in range(len(df2_1)):
+    tavgmin.append(fruit2_1.values[0])
+    tavgmax.append(fruit2_2.values[0])
+df2_2 = pd.concat([df2_1,pd.Series(tavgmin).rename('연평균 최저기온'),pd.Series(tavgmax).rename('연평균 최고기온')],axis = 1)
+plt.plot(df2_2['tmax'], color = 'red')
+plt.plot(df2_2['tmin'], color = 'blue')
+plt.plot(df2_2['연평균 최저기온'], color = 'lightgray')
+plt.plot(df2_2['연평균 최고기온'], color = 'lightgray')
+
+
+
+
+
+
+
+
+
+
 
 ################################################################
 st.subheader('')
