@@ -129,7 +129,7 @@ else:
     total_score2 = first_score - nansu1
 
 data_frame2 = {'total_score' : round(total_score,2),'nonscore' : 100-round(total_score,2)}
-data_frame3 = {'total_score2' : round(total_score2,2),'nonscore' : 100-round(total_score,2)}
+data_frame3 = {'total_score2' : round(total_score2,2),'nonscore' : 100-round(total_score2,2)}
 data_frame4 = {'total_score3' : round((round(total_score2,2)+round(total_score,2))/2,2),'nonscore' : 100-round(((round(total_score2,2)+round(total_score,2))/2))}
 data_frame = {'score' : 70,'nonscore' : 30}
 
