@@ -149,7 +149,7 @@ fruit5_2 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 최고기온'
 fruit5_3 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 시작']
 fruit5_4 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 끝']
 df_13 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
-df_130 = df_13[df_13['Year']==2012]
+df_130 = df_13[df_13['Year']==yearslider]
 if (fruit5_4.values[0]-fruit5_3.values[0]) == 2:
     df_131 = df_130[df_130['Mon']==fruit5_3.values[0]]
     df_132 = df_130[df_130['Mon']==fruit5_3.values[0]+1]
@@ -185,7 +185,7 @@ plt.plot(df_134['생육 최저기온'], color = 'lightgray')
 plt.plot(df_134['생육 최고기온'], color = 'lightgray')
 if fruit5_4.values[0]-fruit5_3.values[0] == 2:
     plt.xticks(np.arange(0,((fruit5_4.values[0]-fruit5_3.values[0])+1)*30,15), labels = ['Mar','','Jun','','Jul',''])
-    
+
 elif fruit5_4.values[0]-fruit5_3.values[0] == 4:
     plt.xticks(np.arange(0,((fruit5_4.values[0]-fruit5_3.values[0])+1)*30,15), labels = ['Mar','','Jun','','Jul','','Aug','','Sep',''])
 else:
