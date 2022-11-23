@@ -100,8 +100,8 @@ df_133 = df_133.reset_index()
 tavgmin = []
 tavgmax = []
 for i in range(len(df_133)):
-    tavgmin.append(fruit2_1)
-    tavgmax.append(fruit2_2)
+    tavgmax.append(fruit2_1)
+    tavgmin.append(fruit2_2)
 df_134 = pd.concat([df_133,pd.Series(tavgmin).rename('생육 최저기온'),pd.Series(tavgmax).rename('생육 최고기온')],axis = 1)
 
 max2013 = df_134['tmax'].mean()
