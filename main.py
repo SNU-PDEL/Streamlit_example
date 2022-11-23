@@ -69,8 +69,8 @@ else:
 ####################################
 st3 = pd.read_csv('st3.csv')
 fruit2 = pd.read_csv('fruit2.csv', encoding = 'cp949')
-fruit2_1 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 최저기온'].values[0]
-fruit2_2 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 최고기온'].values[0]
+fruit2_1 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 최고기온'].values[0]
+fruit2_2 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 최저기온'].values[0]
 fruit2_3 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 시작'].values[0]
 fruit2_4 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 끝'].values[0]
 df_13 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'_new2.csv').values[0])
