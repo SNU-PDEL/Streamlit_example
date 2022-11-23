@@ -183,6 +183,10 @@ elif fruit2_4[0]-fruit2_3[0] == 4:
     plt.xticks(np.arange(0,(fruit2_4[0]-fruit2_3[0]+1)*30,15), labels = ['Mar','','Jun','','Jul','','Aug','','Sep',''])
 else:
     plt.xticks(np.arange(0,(fruit2_4[0]-fruit2_3[0]+1)*30,15), labels = ['Apr','','Mar','','Jun','','Jul','','Aug','','Sep','','Oct',''])
+plt.fill_between(x = df_134.index, y1= df_134['생육 최저기온'],y2 =df_134['tmin'], where = df_134['tmin'] < df_134['생육 최저기온'],interpolate= True,  facecolor = 'blue', alpha = 0.5)
+plt.fill_between(x = df_134.index, y1= df_134['생육 최고기온'],y2 =df_134['tmax'], where = df_134['tmax'] > df_134['생육 최고기온'],interpolate= True,  facecolor = 'red', alpha = 0.5)
+plt.fill_between(x = df_134.index, y1= df_134['생육 최고기온'],y2 =df_134['tmin'], where = df_134['tmin'] > df_134['생육 최고기온'],interpolate= True,  facecolor = 'white', alpha = 1)
+plt.fill_between(x = df_134.index, y1= df_134['생육 최저기온'],y2 =df_134['tmax'], where = df_134['tmax'] < df_134['생육 최저기온'],interpolate= True,  facecolor = 'white', alpha = 1)
 
 st.pyplot(fig)
 
