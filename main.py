@@ -113,6 +113,9 @@ if (max2013 >= fruit2_1) & (min2013 <= fruit2_2):
     nansu2 = np.exp(abs(min2013 - fruit2_2)/10)
     nansu = nansu1 + nansu2
     total_score2 = first_score - nansu
+elif (max2013 <= fruit2_1) & (min2013 >= fruit2_2):
+    first_score = 100
+    total_score2 = first_score
 elif (max2013 >= fruit2_1) & (min2013 >= fruit2_1):
     first_score = 0
     total_score2 = first_score
