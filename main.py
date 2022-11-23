@@ -144,11 +144,11 @@ st.subheader('')
 st.subheader(cultiva_selectbox + ' 생육시기에서 적정 생육 기온과 ' + location_selectbox + '의 기온 비교')
 st3 = pd.read_csv('st3.csv')
 fruit2 = pd.read_csv('fruit2.csv', encoding = 'cp949')
-fruit2_1 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 최저기온']
-fruit2_2 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 최고기온']
-fruit2_3 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 시작']
-fruit2_4 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 끝']
-df_13 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'.csv').values[0])
+fruit2_1 = fruit2[fruit2['작물명']== '사과']['생육 최저기온']
+fruit2_2 = fruit2[fruit2['작물명']== '사과']['생육 최고기온']
+fruit2_3 = fruit2[fruit2['작물명']== '사과']['생육 시작']
+fruit2_4 = fruit2[fruit2['작물명']== '사과']['생육 끝']
+df_13 = pd.read_csv((st3[st3['kEname']=='강릉']['number']+'.csv').values[0])
 df_130 = df_13[df_13['Year']==2012]
 if (fruit2_4[0]-fruit2_3[0]) == 2:
     df_131 = df_130[df_130['Mon']==fruit2_3[0]]
