@@ -155,7 +155,7 @@ if (fruit5_4.values[0]-fruit5_3.values[0]) == 2:
     df_132 = df_130[df_130['Mon']==fruit5_3[0]+1]
     df_231 = df_130[df_130['Mon']==fruit5_4[0]]
     df_133 = pd.concat([df_131,df_132,df_231])  
-elif (fruit5_4[0]-fruit5_3[0]) == 4:
+elif (fruit5_4.values[0]-fruit5_3.values[0]) == 4:
     df_131 = df_130[df_130['Mon']==fruit5_3[0]]
     df_132 = df_130[df_130['Mon']==fruit5_3[0]+1]
     df_1321 = df_130[df_130['Mon']==fruit5_3[0]+2]
