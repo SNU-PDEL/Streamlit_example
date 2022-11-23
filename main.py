@@ -74,7 +74,7 @@ plt.plot(df4['tmin'], color = 'blue')
 plt.legend(['tmax','tmin'])
 st.pyplot(fig)
 
-st.subheader(location_selectbox + '의 평균기온')
+st.subheader(cultiva_selectbox + ' 의 적정 연간평균 기온과 ' + location_selectbox + '의 연간 기온 비교')
 st3 = pd.read_csv('st3.csv')
 fruit2 = pd.read_csv('fruit2.csv', encoding = 'cp949')
 fruit2_1 = fruit2[fruit2['작물명']== cultiva_selectbox]['연평균 최저기온']
