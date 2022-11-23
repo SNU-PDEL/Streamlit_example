@@ -124,6 +124,7 @@ else:
 
 data_frame2 = {'total_score' : round(total_score,2),'nonscore' : 100-round(total_score,2)}
 data_frame3 = {'total_score2' : round(total_score2,2),'nonscore' : 100-round(total_score,2)}
+data_frame4 = {'total_score3' : (round(total_score2,2)+round(total_score,2))/2,'nonscore' : 100-((round(total_score2,2)+round(total_score,2))/2)}
 data_frame = {'score' : 70,'nonscore' : 30}
 
 col1_1, col1_2 = st.columns([2,1])
@@ -131,10 +132,10 @@ with col1_1:
     fig = plt.figure(1)
     ax = fig.add_subplot()
     colors = ['lightgreen','white']
-    ax.pie([data_frame['score'],data_frame['nonscore']],colors = colors, explode = (0.05,0.05))
+    ax.pie([data_frame4['total_score3'],data_frame4['nonscore']],colors = colors, explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig.gca().add_artist(centre_circle)
-    ax.text(-0.,0,data_frame['score'], size = 20, horizontalalignment='center', verticalalignment='center')
+    ax.text(-0.,0,data_frame4['total_score3'], size = 20, horizontalalignment='center', verticalalignment='center')
     plt.title('Total', size = 20)
     st.pyplot(fig)
 with col1_2:
