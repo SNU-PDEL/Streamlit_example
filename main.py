@@ -287,15 +287,19 @@ for i in range(len(realfruit)):
 realomax = []
 for i in range(len(realfruit)):
     realomax.append(int(fruit2[fruit2['작물명']==cultiva_selectbox]['생육 최고기온']))
+realdate = []
+for i in range(len(realfruit)):
+    realdate.append(str(int(realfruit.iloc[i]['Year'])) + '-' +  str(int(realfruit.iloc[i]['Mon'])))
 realfruit['optimal tmin'] = realomin
 realfruit['optimal tmax'] = realomax
+realfruit['date'] = realdate
 
 fig = plt.figure(figsize=(11,4))
 plt.plot(realfruit['optimal tmin'], color = 'lightgray')
 plt.plot(realfruit['optimal tmax'], color = 'lightgray')
 plt.plot(realfruit['tmax'], color = 'red')
 plt.plot(realfruit['tmin'], color = 'blue')
-plt.xticks(realfruit[['Year','Mon']])
+plt.xticks(realfruit['date'])
 
 #plt.fill_between(x = realfruit['Year'], y1= realfruit['optimal tmin'],y2 =realfruit['tmin'], where = (realfruit['Year']['tmin'] < realfruit['Year']['optimal tmin']),interpolate= True, facecolor = 'blue', alpha = 0.5)
 #plt.fill_between(x = realfruit['Year'], y1= realfruit['optimal tmax'],y2 =realfruit['tmax'], where = (realfruit['Year']['tmax'] > realfruit['Year']['optimal tmax']),interpolate= True, facecolor = 'red', alpha = 0.5)
