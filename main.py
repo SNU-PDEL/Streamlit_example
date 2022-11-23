@@ -29,11 +29,6 @@ col1, col2 = st.columns([3,2])
 with col1:
     df2 = pd.DataFrame({'lat': [42.187,34.355], 'lon' : [123.71945,130.502]})
     st.map(df2)
-with col2:
-    image = Image.open(cultiva_selectbox + '.jpg')
-    st.image(image)
-    image2 = Image.open(cultiva_selectbox + '2.jpg')
-    st.image(image2)
 
 col1_1, col1_2 = st.columns([2,1])
 with col1_1:
