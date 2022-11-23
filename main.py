@@ -107,7 +107,7 @@ plt.fill_between(x = df2.index, y1= df2['연평균 최고기온'],y2 =df2['tmin'
 plt.fill_between(x = df2.index, y1= df2['연평균 최저기온'],y2 =df2['tmax'], where = df2['tmax'] < df2['연평균 최저기온'],interpolate= True,  facecolor = 'white', alpha = 1)
 st.pyplot(fig)
 
-st.subheader(cultiva_selectbox + '의 적정 연간평균 기온과 ' + location_selectbox + '의' + yearslider + ' 기온 비교')
+st.subheader(cultiva_selectbox + '의 적정 연간평균 기온과 ' + location_selectbox + '의 특정 연도 기온 비교')
 st3 = pd.read_csv('st3.csv')
 df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'_new2.csv').values[0])
 df2_1 = df[df['Year']==yearslider]
