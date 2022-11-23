@@ -25,7 +25,6 @@ if st.sidebar.button('Custom'):
             st.slider('생육 적정 기온', 10,40,(20,30))
             submitted1 = st.form_submit_button(label = 'submit')
 
-data_frame = {'score' : 70,'nonscore' : 30}
 
 col1, col2 = st.columns([3,2])
 with col1:
@@ -37,6 +36,30 @@ with col2:
     st.image(image)
     st.image(image2)
 
+st3 = pd.read_csv('st3.csv')
+df_13 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'_new2.csv').values[0])
+df_14= df_13[df_13['Year']==2039]
+max2012 = df_14['tmax'].mean()
+min2012 = df_14['tmin'].mean()
+fruit2 = pd.read_csv('fruit2.csv', encoding = 'cp949')
+fruit2_1 = fruit2[fruit2['작물명']== cultiva_selectbox]['연평균 최고기온'].values[0]
+fruit2_2 = fruit2[fruit2['작물명']== cultiva_selectbox]['연평균 최저기온'].values[0]
+
+if (max2012 >= fruit2_1) & (min2012 <= fruit2_2):
+    first_score = 100
+    nansu1 = np.exp(abs(max2012 - fruit2_1)/10) 
+    nansu2 = np.exp(abs(min2012 - fruit2_2)/10)
+    nansu = nansu1 + nansu2
+    total_score = first_score - nansu
+elif (max2012 >= fruit2_1) & (min2012 >= fruit2_1):
+    first_score = 0
+    total_score = first_score
+else:
+    first_score = (fruit2_1-min2012)/(fruit2_1 - fruit2_2)*100
+    nansu1 = np.exp(abs(max2012 - fruit2_1)/10) 
+    total_score = first_score - nansu1
+data_frame2 = {'total_score' : total_score,'nonscore' : 100-total_score}
+data_frame = {'score' : 70,'nonscore' : 30}
 col1_1, col1_2 = st.columns([2,1])
 with col1_1:
     fig = plt.figure(1)
@@ -52,10 +75,10 @@ with col1_2:
     fig2 = plt.figure(2)
     ax2 = fig2.add_subplot()
     colors = ['gray','white']
-    ax2.pie([data_frame['nonscore'],data_frame['score']],colors = ['gray','white'], explode = (0.05,0.05))
+    ax2.pie([data_frame2['total_score'],data_frame2['nonscore']],colors = ['gray','white'], explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig2.gca().add_artist(centre_circle)
-    ax2.text(-0.,0,data_frame['nonscore'], size = 20, horizontalalignment='center', verticalalignment='center')
+    ax2.text(-0.,0,data_frame2['total_score'], size = 20, horizontalalignment='center', verticalalignment='center')
     plt.title('Year', size = 20)
     st.pyplot(fig2)
 
@@ -194,6 +217,21 @@ plt.fill_between(x = df_134.index, y1= df_134['생육 최고기온'],y2 =df_134[
 plt.fill_between(x = df_134.index, y1= df_134['생육 최고기온'],y2 =df_134['tmin'], where = df_134['tmin'] > df_134['생육 최고기온'],interpolate= True,  facecolor = 'white', alpha = 1)
 plt.fill_between(x = df_134.index, y1= df_134['생육 최저기온'],y2 =df_134['tmax'], where = df_134['tmax'] < df_134['생육 최저기온'],interpolate= True,  facecolor = 'white', alpha = 1)
 st.pyplot(fig)
+
+###########################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 st.subheader('')
 st.subheader(cultiva_selectbox + '의 육묘 적정 기온구간과 ' + location_selectbox+'의 기온구간의 차이')   
