@@ -299,7 +299,7 @@ plt.plot(realfruit['optimal tmin'], color = 'lightgray')
 plt.plot(realfruit['optimal tmax'], color = 'lightgray')
 plt.plot(realfruit['tmax'], color = 'red')
 plt.plot(realfruit['tmin'], color = 'blue')
-plt.xticks(realfruit['date'])
+
 
 #plt.fill_between(x = realfruit['Year'], y1= realfruit['optimal tmin'],y2 =realfruit['tmin'], where = (realfruit['Year']['tmin'] < realfruit['Year']['optimal tmin']),interpolate= True, facecolor = 'blue', alpha = 0.5)
 #plt.fill_between(x = realfruit['Year'], y1= realfruit['optimal tmax'],y2 =realfruit['tmax'], where = (realfruit['Year']['tmax'] > realfruit['Year']['optimal tmax']),interpolate= True, facecolor = 'red', alpha = 0.5)
