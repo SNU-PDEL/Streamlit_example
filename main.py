@@ -85,10 +85,10 @@ df3 = df.groupby('Year').mean()['tmin']
 fig = plt.figure(figsize=(11,4))
 plt.plot(df2, color = 'red')
 plt.plot(df3, color = 'blue')
-plt.plot(fruit2_1, color = 'lightgray')
-plt.plot(fruit2_2, color = 'lightgray')
+#plt.plot(fruit2_1, color = 'lightgray')
+#plt.plot(fruit2_2, color = 'lightgray')
 
-plt.legend(['tmax','tmin','optimal_tmin','optimal_tmax'])
+#plt.legend(['tmax','tmin','optimal_tmin','optimal_tmax'])
 st.pyplot(fig)
 
 
