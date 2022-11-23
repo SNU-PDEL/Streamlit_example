@@ -106,6 +106,7 @@ st.subheader(cultiva_selectbox + '의 적정 연간평균 기온과 ' + location
 st3 = pd.read_csv('st3.csv')
 df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'_new2.csv').values[0])
 df2_1 = df[df['Year']==yearslider]
+df2_1 = df2_1.reset_index()
 fruit2 = pd.read_csv('fruit2.csv', encoding = 'cp949')
 fruit2_1 = fruit2[fruit2['작물명']== cultiva_selectbox]['연평균 최저기온']
 fruit2_2 = fruit2[fruit2['작물명']== cultiva_selectbox]['연평균 최고기온']
