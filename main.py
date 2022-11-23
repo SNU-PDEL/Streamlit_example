@@ -184,7 +184,8 @@ plt.plot(df_134['tmin'], color = 'blue')
 plt.plot(df_134['생육 최저기온'], color = 'lightgray')
 plt.plot(df_134['생육 최고기온'], color = 'lightgray')
 if fruit5_4.values[0]-fruit5_3.values[0] == 2:
-    plt.xticks(np.arange(0,((fruit5_4.values[0]-fruit5_3.values[0])+1)*30,15), labels = ['Mar','','Jun','','Jul','',''])
+    plt.xticks(np.arange(0,((fruit5_4.values[0]-fruit5_3.values[0])+1)*30,15), labels = ['Mar','','Jun','','Jul',''])
+    
 elif fruit5_4.values[0]-fruit5_3.values[0] == 4:
     plt.xticks(np.arange(0,((fruit5_4.values[0]-fruit5_3.values[0])+1)*30,15), labels = ['Mar','','Jun','','Jul','','Aug','','Sep',''])
 else:
