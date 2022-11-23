@@ -74,7 +74,7 @@ fruit2_2 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 최저기온'
 fruit2_3 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 시작'].values[0]
 fruit2_4 = fruit2[fruit2['작물명']== cultiva_selectbox]['생육 끝'].values[0]
 df_13 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'_new2.csv').values[0])
-df_130 = df_13[df_13['Year']==2002]
+df_130 = df_13[df_13['Year']==2099]
 if (fruit2_4-fruit2_3) == 2:
     df_131 = df_130[df_130['Mon']==fruit2_3]
     df_132 = df_130[df_130['Mon']==fruit2_3+1]
@@ -100,8 +100,8 @@ df_133 = df_133.reset_index()
 tavgmin = []
 tavgmax = []
 for i in range(len(df_133)):
-    tavgmax.append(fruit2_1)
     tavgmin.append(fruit2_2)
+    tavgmax.append(fruit2_1)
 df_134 = pd.concat([df_133,pd.Series(tavgmin).rename('생육 최저기온'),pd.Series(tavgmax).rename('생육 최고기온')],axis = 1)
 
 max2013 = df_134['tmax'].mean()
