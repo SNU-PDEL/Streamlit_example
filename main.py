@@ -382,7 +382,7 @@ fig, ax = plt.subplots(figsize=(25, 10))
 im = ax.matshow(heatmap.T, cmap='Greens')
 ax.set_xticks(np.arange(len(heatmap.T.columns)), labels=xxx, size = 10)
 ax.set_yticks(np.arange(len(heatmap.T.index)), labels=heatmap.T.index, size = 10)
-ax.grid(True)
+ax.grid(False)
 fig.colorbar(im)
 st.pyplot(fig)
 
