@@ -139,9 +139,20 @@ data_frame = {'score' : 70,'nonscore' : 30}
 
 st3 = pd.read_csv('st3.csv')
 col1, col2 = st.columns([3,2])
+if data_frame4['total_score3'] >= 90:
+    get_color='[0, 0, 100, 160]'
+elif data_frame4['total_score3'] >= 70:
+    get_color='[0, 100, 0, 160]'
+elif data_frame4['total_score3'] >= 45:
+    get_color='[50, 50, 0, 160]'
+elif data_frame4['total_score3'] >= 25:
+    get_color='[75, 50, 0, 160]'
+else:
+    get_color='[100, 0, 0, 160]'
 with col1:
     st35 = st3[st3['kEname'] == '속초'][['Lat','Lon']]
     st35.columns = ['lat','lon']
+    
     st.pydeck_chart(pdk.Deck(
     map_style=None,
     initial_view_state=pdk.ViewState(
@@ -155,7 +166,7 @@ with col1:
             'ScatterplotLayer',
             data=st35,
             get_position='[lon, lat]',
-            get_color='[100, 0, 0, 160]',
+            get_color=get_color,
             get_radius=1500,
         ),
     ],
