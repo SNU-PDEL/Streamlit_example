@@ -160,7 +160,7 @@ with col1:
     initial_view_state=pdk.ViewState(
         latitude=st35['lat'][0],
         longitude=st35['lon'][0],
-        zoom=4,
+        zoom=7,
         pitch=10,
     ),
     layers=[
