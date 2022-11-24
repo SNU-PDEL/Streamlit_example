@@ -144,7 +144,7 @@ if data_frame4['total_score3'] >= 90:
 elif data_frame4['total_score3'] >= 70:
     get_color='[0, 100, 0, 160]'
 elif data_frame4['total_score3'] >= 45:
-    get_color='[255, 255, 0, 160]'
+    get_color='[155, 155, 0, 160]'
 elif data_frame4['total_score3'] >= 25:
     get_color='[255, 140, 0, 160]'
 elif data_frame4['total_score3'] > 0:
