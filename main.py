@@ -37,7 +37,7 @@ with col1:
             data=st35,
             get_position='[lon, lat]',
             get_color='[200, 30, 0, 160]',
-            get_radius=200,
+            get_radius=1000,
         ),
     ],
     ))
