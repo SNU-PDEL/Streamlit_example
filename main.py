@@ -304,25 +304,12 @@ st.pyplot(fig)
 
 ###########################################################################
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 st.subheader('')
 st.subheader(cultiva_selectbox + '의 육묘 적정 기온구간과 ' + location_selectbox+'의 기온구간의 차이')   
 heatmap = pd.read_csv('속초_단감.csv')
 
 fig, ax = plt.subplots(figsize=(24, 20))
-im = ax.matshow(heat_pivot, cmap='Reds')
+im = ax.matshow(heatmap, cmap='Reds')
 ax.grid(False)
 fig.colorbar(im)
 st.pyplot(fig)
