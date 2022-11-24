@@ -179,7 +179,7 @@ with col1_1:
     elif data_frame2['total_score'] >= 45:
         colors = ['yellow','white']
     elif data_frame2['total_score'] >= 25:
-        colors = ['orange','white']
+        colors = ['#ffcc99','white']
     else:
         colors = ['red','white']
     ax.pie([data_frame4['total_score3'],data_frame4['nonscore']],colors = colors, explode = (0.05,0.05))
@@ -198,7 +198,7 @@ with col1_2:
     elif data_frame2['total_score'] >= 45:
         colors = ['yellow','white']
     elif data_frame2['total_score'] >= 25:
-        colors = ['orange','white']
+        colors = ['#ffcc99','white']
     else:
         colors = ['red','white']
     ax2.pie([data_frame2['total_score'],data_frame2['nonscore']],colors = colors, explode = (0.05,0.05))
@@ -217,7 +217,7 @@ with col1_2:
     elif data_frame2['total_score'] >= 45:
         colors = ['yellow','white']
     elif data_frame2['total_score'] >= 25:
-        colors = ['orange','white']
+        colors = ['#ffcc99','white']
     else:
         colors = ['red','white']
     ax3.pie([data_frame3['total_score2'],data_frame3['nonscore']],colors = colors, explode = (0.05,0.05))
