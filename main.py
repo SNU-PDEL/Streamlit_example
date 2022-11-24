@@ -29,7 +29,7 @@ with col1:
         latitude=st35['lat'][0],
         longitude=st35['lon'][0],
         zoom=11,
-        pitch=50,
+        pitch=100,
     ),
     layers=[
         pdk.Layer(
