@@ -310,8 +310,8 @@ for i in np.arange(1981,2101, 10):
         xxx.append('')
         
 st.subheader('')
-st.subheader(cultiva_selectbox + '의 육묘 적정 기온구간과 ' + location_selectbox+'의 기온구간의 차이')   
-heatmap = pd.read_csv('속초_단감.csv')
+st.subheader(location_selectbox + '에서' + location_selectbox + '생육 기간간 점수')   
+heatmap = pd.read_csv(location_selectbox+'_'+cultiva_selectbox+'.csv')
 heatmap.index = heatmap['Year']
 del heatmap['Year']
 fig, ax = plt.subplots(figsize=(25, 10))
