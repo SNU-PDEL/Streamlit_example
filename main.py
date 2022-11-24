@@ -174,7 +174,7 @@ with col1:
     ],
     ))
 with col2:
-    image = Image.open(cultiva_selectbox + '.jpg')
+    image = Image.open('legend.png')
     image2 = Image.open(cultiva_selectbox + '2.jpg')
     st.image(image)
     st.image(image2)
