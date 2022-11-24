@@ -188,7 +188,7 @@ with col1_2:
         colors = ['yellow','white']
     else:
         colors = ['red','white']
-    ax2.pie([data_frame2['total_score'],data_frame2['nonscore']],colors = ['gray','white'], explode = (0.05,0.05))
+    ax2.pie([data_frame2['total_score'],data_frame2['nonscore']],colors = colors, explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig2.gca().add_artist(centre_circle)
     ax2.text(-0.,0,data_frame2['total_score'], size = 20, horizontalalignment='center', verticalalignment='center')
