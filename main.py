@@ -11,7 +11,7 @@ import pydeck as pdk
 
 
 st.title('Visualization Project')
-st.header('Crop-suited location based on future climate data')
+st.header('미래 기후 시나리오에 따른 적합 작물 경작지')
 
 
 yearslider = st.sidebar.slider('년도',1981,2100)
