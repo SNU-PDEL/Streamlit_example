@@ -309,10 +309,10 @@ st.subheader(cultiva_selectbox + '의 육묘 적정 기온구간과 ' + location
 heatmap = pd.read_csv('속초_단감.csv')
 heatmap.index = heatmap['Year']
 del heatmap['Year']
-fig, ax = plt.subplots(figsize=(24, 20))
+fig, ax = plt.subplots(figsize=(15, 15))
 im = ax.matshow(heatmap, cmap='Reds')
-ax.set_xticks(np.arange(len(heatmap.columns)), labels=heatmap.columns, size = 15)
-ax.set_yticks(np.arange(len(heatmap.index)), labels=heatmap.index, size = 10)
+ax.set_xticks(np.arange(len(heatmap.columns)), labels=heatmap.columns, size = 10)
+ax.set_yticks(np.arange(len(heatmap.index)), labels=heatmap.index, size = 5)
 ax.grid(False)
 #fig.colorbar(im)
 st.pyplot(fig)
