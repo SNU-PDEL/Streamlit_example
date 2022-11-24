@@ -71,7 +71,7 @@ elif (max2012<=fruit2_1) & (max2012>=fruit2_2) & (min2012<= fruit2_2):
 else:
     first_score = (fruit2_1-min2012)/(fruit2_1 - fruit2_2)*100
     nansu1 = np.exp(abs(max2012 - fruit2_1)/10) 
-    if nansu1 >= first_score
+    if nansu1 >= first_score:
         tscore = 0
     else:
         tscore = first_score - nansu1
