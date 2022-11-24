@@ -182,7 +182,12 @@ with col1_1:
 with col1_2:
     fig2 = plt.figure(2)
     ax2 = fig2.add_subplot()
-    colors = ['gray','white']
+    if data_frame2['total_score'] >= 70:
+        colors = ['green','white']
+    elif data_frame2['total_score'] >= 40:
+        colors = ['yellow','white']
+    else:
+        colors = ['red','white']
     ax2.pie([data_frame2['total_score'],data_frame2['nonscore']],colors = ['gray','white'], explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig2.gca().add_artist(centre_circle)
