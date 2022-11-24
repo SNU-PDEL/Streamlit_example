@@ -310,9 +310,9 @@ heatmap = pd.read_csv('속초_단감.csv')
 heatmap.index = heatmap['Year']
 del heatmap['Year']
 fig, ax = plt.subplots(figsize=(50, 3))
-im = ax.matshow(heatmap, cmap='Reds')
-ax.set_xticks(np.arange(len(heatmap.columns)), labels=heatmap.columns, size = 1)
-ax.set_yticks(np.arange(len(heatmap.index)), labels=heatmap.index, size = 1)
+im = ax.matshow(heatmap.T, cmap='Reds')
+ax.set_xticks(np.arange(len(heatmap.T.columns)), labels=heatmap.T.columns, size = 1)
+ax.set_yticks(np.arange(len(heatmap.T.index)), labels=heatmap.T.index, size = 1)
 ax.grid(False)
 #fig.colorbar(im)
 st.pyplot(fig)
