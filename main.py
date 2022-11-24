@@ -303,7 +303,12 @@ plt.fill_between(x = df_134.index, y1= df_134['생육 최저기온'],y2 =df_134[
 st.pyplot(fig)
 
 ###########################################################################
-
+xxx= []
+for i in np.arange(1981,2101, 10):
+    xxx.append(i)
+    for j in range(9):
+        xxx.append('')
+        
 st.subheader('')
 st.subheader(cultiva_selectbox + '의 육묘 적정 기온구간과 ' + location_selectbox+'의 기온구간의 차이')   
 heatmap = pd.read_csv('속초_단감.csv')
@@ -311,7 +316,7 @@ heatmap.index = heatmap['Year']
 del heatmap['Year']
 fig, ax = plt.subplots(figsize=(25, 10))
 im = ax.matshow(heatmap.T, cmap='Greens')
-ax.set_xticks(np.arange(len(heatmap.T.columns)/10), labels=np.arange(1981,2101, 10), size = 10)
+ax.set_xticks(np.arange(len(heatmap.T.columns)/10), labels=xxx, size = 10)
 ax.set_yticks(np.arange(len(heatmap.T.index)), labels=heatmap.T.index, size = 10)
 ax.grid(False)
 fig.colorbar(im)
