@@ -6,7 +6,8 @@ import plotly.express as px
 from PIL import Image
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
-import matplotlib.dates as mdates    
+import matplotlib.dates as mdates 
+import pydeck as pdk   
 
 
 st.title('Visualization homework')
@@ -22,13 +23,28 @@ col1, col2 = st.columns([3,2])
 with col1:
     st35 = st3[st3['kEname'] == '속초'][['Lat','Lon']]
     st35.columns = ['lat','lon']
-    st35 = st35.round(1)
     st.map(st35)
 with col2:
     image = Image.open(cultiva_selectbox + '.jpg')
     image2 = Image.open(cultiva_selectbox + '2.jpg')
     st.image(image)
     st.image(image2)
+
+st.pydeck_chart(pdk.Deck(initial_view_state=pdk.ViewState(latitude=37.76,longitude=-122.4,zoom=11,pitch=50)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 st3 = pd.read_csv('st3.csv')
 df_13 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'_new2.csv').values[0])
