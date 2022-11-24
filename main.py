@@ -12,8 +12,8 @@ import pydeck as pdk
 
 st.title('Visualization Project')
 st.header('Crop-suited location based on future climate data')
-st.text('               서울대학교 농생명공학부 이노현')
-st.text('               서울대학교 농생명공학부 정원재')
+st.text('               서울대학교 농생명공학부 이노현, 정원재')
+
 yearslider = st.sidebar.slider('년도',1981,2100)
 with st.form(key='Form2'):
     with st.sidebar:
