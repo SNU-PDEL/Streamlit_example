@@ -314,7 +314,7 @@ im = ax.matshow(heatmap, cmap='Reds')
 ax.set_xticks(np.arange(len(heatmap.columns)), labels=heatmap.columns, size = 15)
 ax.set_yticks(np.arange(len(heatmap.index)), labels=heatmap.index, size = 10)
 ax.grid(False)
-fig.colorbar(im)
+#fig.colorbar(im)
 st.pyplot(fig)
 
 
