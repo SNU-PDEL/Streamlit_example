@@ -172,7 +172,14 @@ col1_1, col1_2 = st.columns([2,1])
 with col1_1:
     fig = plt.figure(1)
     ax = fig.add_subplot()
-    colors = ['lightgreen','white']
+    if data_frame2['total_score'] >= 90:
+        colors = ['blue','white']
+    elif data_frame2['total_score'] >= 70:
+        colors = ['green','white']
+    elif data_frame2['total_score'] >= 40:
+        colors = ['yellow','white']
+    else:
+        colors = ['red','white']
     ax.pie([data_frame4['total_score3'],data_frame4['nonscore']],colors = colors, explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig.gca().add_artist(centre_circle)
@@ -182,7 +189,9 @@ with col1_1:
 with col1_2:
     fig2 = plt.figure(2)
     ax2 = fig2.add_subplot()
-    if data_frame2['total_score'] >= 70:
+    if data_frame2['total_score'] >= 90:
+        colors = ['blue','white']
+    elif data_frame2['total_score'] >= 70:
         colors = ['green','white']
     elif data_frame2['total_score'] >= 40:
         colors = ['yellow','white']
@@ -197,7 +206,14 @@ with col1_2:
 
     fig3 = plt.figure(3)
     ax3 = fig3.add_subplot()
-    colors = ['lightblue','white']
+    if data_frame2['total_score'] >= 90:
+        colors = ['blue','white']
+    elif data_frame2['total_score'] >= 70:
+        colors = ['green','white']
+    elif data_frame2['total_score'] >= 40:
+        colors = ['yellow','white']
+    else:
+        colors = ['red','white']
     ax3.pie([data_frame3['total_score2'],data_frame3['nonscore']],colors = colors, explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.90, fc='white')
     fig3.gca().add_artist(centre_circle)
