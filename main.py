@@ -169,7 +169,7 @@ with col1:
             data=st35,
             get_position='[lon, lat]',
             get_color=get_color,
-            get_radius=5000,
+            get_radius=7000,
         ),
     ],
     ))
