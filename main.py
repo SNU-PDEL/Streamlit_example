@@ -310,7 +310,7 @@ for i in np.arange(1981,2101, 10):
         xxx.append('')
         
 st.subheader('')
-st.subheader(location_selectbox + '에서' + location_selectbox + '생육 기간간 점수')   
+st.subheader(location_selectbox + '에서 ' + cultiva_selectbox + ' 생육 기간간 점수')   
 heatmap = pd.read_csv(location_selectbox+'_'+cultiva_selectbox+'.csv')
 heatmap.index = heatmap['Year']
 del heatmap['Year']
