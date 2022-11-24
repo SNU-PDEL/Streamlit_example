@@ -150,7 +150,7 @@ elif data_frame4['total_score3'] >= 25:
 else:
     get_color='[100, 0, 0, 160]'
 with col1:
-    st35 = st3[st3['kEname'] == '속초'][['Lat','Lon']]
+    st35 = st3[st3['kEname'] == location_selectbox][['Lat','Lon']]
     st35.columns = ['lat','lon']
     
     st.pydeck_chart(pdk.Deck(
