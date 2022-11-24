@@ -32,7 +32,7 @@ with col2:
 
 st.pydeck_chart(pdk.Deck(initial_view_state=pdk.ViewState(latitude=st35['lat'][0],longitude=st35['lon'][0],zoom=11,pitch=50)), layers = pdk.layer('ScatterplotLayer', data = st35))
 
-
+st.pydeck_chart(pdk.Deck(map_style=None,initial_view_state=pdk.ViewState(latitude=37.76,longitude=-122.4,zoom=11,pitch=50),layers=pdk.Layer('ScatterplotLayer',data=st35,get_position='[lon, lat]',get_color='[200, 30, 0, 160]',get_radius=200)))
 
 
 
