@@ -17,10 +17,9 @@ with st.form(key='Form2'):
         cultiva_selectbox = st.selectbox('작물',('단감','당귀','배','복숭아','사과','인삼','천궁','포도','기타'))
         submitted2 = st.form_submit_button(label = 'submit')
 
-st3 = pd.read_csv('st3.csv')
 col1, col2 = st.columns([3,2])
 with col1:
-    df2 = st3[st3['kEname'] == '속초'][['Lat','Lon']]
+    df2 = pd.DataFrame({'Lat': [42.187,34.355], 'Lon' : [123.71945,130.502]})
     st.map(df2)
 with col2:
     image = Image.open(cultiva_selectbox + '.jpg')
