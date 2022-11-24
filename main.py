@@ -18,47 +18,6 @@ with st.form(key='Form2'):
         cultiva_selectbox = st.selectbox('작물',('단감','당귀','배','복숭아','사과','인삼','천궁','포도','기타'))
         submitted2 = st.form_submit_button(label = 'submit')
 
-st3 = pd.read_csv('st3.csv')
-col1, col2 = st.columns([3,2])
-with col1:
-    st35 = st3[st3['kEname'] == '속초'][['Lat','Lon']]
-    st35.columns = ['lat','lon']
-    st.pydeck_chart(pdk.Deck(
-    map_style=None,
-    initial_view_state=pdk.ViewState(
-        latitude=st35['lat'][0],
-        longitude=st35['lon'][0],
-        zoom=11,
-        pitch=10,
-    ),
-    layers=[
-        pdk.Layer(
-            'ScatterplotLayer',
-            data=st35,
-            get_position='[lon, lat]',
-            get_color='[0, 100, 0, 160]',
-            get_radius=1500,
-        ),
-    ],
-    ))
-with col2:
-    image = Image.open(cultiva_selectbox + '.jpg')
-    image2 = Image.open(cultiva_selectbox + '2.jpg')
-    st.image(image)
-    st.image(image2)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 st3 = pd.read_csv('st3.csv')
 df_13 = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'_new2.csv').values[0])
@@ -167,6 +126,44 @@ data_frame2 = {'total_score' : round(total_score,2),'nonscore' : 100-round(total
 data_frame3 = {'total_score2' : round(total_score2,2),'nonscore' : 100-round(total_score2,2)}
 data_frame4 = {'total_score3' : round((round(total_score2,2)+round(total_score,2))/2,2),'nonscore' : 100-round(((round(total_score2,2)+round(total_score,2))/2))}
 data_frame = {'score' : 70,'nonscore' : 30}
+
+col1, col2 = st.columns([3,2])
+with col1:
+    st35 = st3[st3['kEname'] == '속초'][['Lat','Lon']]
+    st35.columns = ['lat','lon']
+    st.pydeck_chart(pdk.Deck(
+    map_style=None,
+    initial_view_state=pdk.ViewState(
+        latitude=st35['lat'][0],
+        longitude=st35['lon'][0],
+        zoom=11,
+        pitch=10,
+    ),
+    layers=[
+        pdk.Layer(
+            'ScatterplotLayer',
+            data=st35,
+            get_position='[lon, lat]',
+            if data_frame4['total_score3'] >= 90:
+                get_color='[0, 0, 100, 160]'
+            elif data_frame4['total_score3'] >= 70:
+                get_color='[0, 100, 0, 160]'
+            elif data_frame4['total_score3'] >= 45:
+                get_color='[50, 50, 0, 160]'
+            elif data_frame4['total_score3'] >= 25:
+                get_color='[75, 50, 0, 160]'
+            else:
+                get_color='[100, 0, 0, 160]',
+            get_radius=1500,
+        ),
+    ],
+    ))
+with col2:
+    image = Image.open(cultiva_selectbox + '.jpg')
+    image2 = Image.open(cultiva_selectbox + '2.jpg')
+    st.image(image)
+    st.image(image2)
+
 
 col1_1, col1_2 = st.columns([2,1])
 with col1_1:
