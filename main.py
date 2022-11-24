@@ -152,7 +152,7 @@ else:
 with col1:
     st35 = st3[st3['kEname'] == location_selectbox][['Lat','Lon']]
     st35.columns = ['lat','lon']
-    
+    st35 = st35.reset_index(drop = True)
     st.pydeck_chart(pdk.Deck(
     map_style=None,
     initial_view_state=pdk.ViewState(
