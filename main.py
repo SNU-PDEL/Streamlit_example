@@ -172,14 +172,14 @@ col1_1, col1_2 = st.columns([2,1])
 with col1_1:
     fig = plt.figure(1)
     ax = fig.add_subplot()
-    if data_frame2['total_score'] >= 90:
+    if data_frame4['total_score3'] >= 90:
         colors = ['blue','white']
-    elif data_frame2['total_score'] >= 70:
+    elif data_frame4['total_score3'] >= 70:
         colors = ['green','white']
-    elif data_frame2['total_score'] >= 45:
+    elif data_frame4['total_score3'] >= 45:
         colors = ['yellow','white']
-    elif data_frame2['total_score'] >= 25:
-        colors = ['yellow','white']
+    elif data_frame4['total_score3'] >= 25:
+        colors = ['orange','white']
     else:
         colors = ['red','white']
     ax.pie([data_frame4['total_score3'],data_frame4['nonscore']],colors = colors, explode = (0.05,0.05))
@@ -198,7 +198,7 @@ with col1_2:
     elif data_frame2['total_score'] >= 45:
         colors = ['yellow','white']
     elif data_frame2['total_score'] >= 25:
-        colors = ['yellow','white']
+        colors = ['orange','white']
     else:
         colors = ['red','white']
     ax2.pie([data_frame2['total_score'],data_frame2['nonscore']],colors = colors, explode = (0.05,0.05))
@@ -210,14 +210,14 @@ with col1_2:
 
     fig3 = plt.figure(3)
     ax3 = fig3.add_subplot()
-    if data_frame2['total_score'] >= 90:
+    if data_frame3['total_score2'] >= 90:
         colors = ['blue','white']
-    elif data_frame2['total_score'] >= 70:
+    elif data_frame3['total_score2'] >= 70:
         colors = ['green','white']
-    elif data_frame2['total_score'] >= 45:
+    elif data_frame3['total_score2'] >= 45:
         colors = ['yellow','white']
-    elif data_frame2['total_score'] >= 25:
-        colors = ['yellow','white']
+    elif data_frame3['total_score2'] >= 25:
+        colors = ['orange','white']
     else:
         colors = ['red','white']
     ax3.pie([data_frame3['total_score2'],data_frame3['nonscore']],colors = colors, explode = (0.05,0.05))
