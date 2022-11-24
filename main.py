@@ -381,7 +381,7 @@ ax.grid(False)
 fig.colorbar(im)
 st.pyplot(fig)
 
-col2_1, col2_2 = st.columns([2,1])
+col2_1, col2_2 = st.columns([3,2])
 with col2_2:
-    st.text('서울대학교 농생명공학부 식물미생물학전공 이노현, 정원재')
+    st.text('서울대학교 농생명공학부 이노현, 정원재')
 
