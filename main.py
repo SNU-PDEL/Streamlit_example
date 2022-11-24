@@ -30,7 +30,7 @@ with col2:
     st.image(image)
     st.image(image2)
 
-st.pydeck_chart(pdk.Deck(initial_view_state=pdk.ViewState(latitude=st35['lat'][0],longitude=st35['lon'][0],zoom=11,pitch=50)))
+st.pydeck_chart(pdk.Deck(initial_view_state=pdk.ViewState(latitude=st35['lat'][0],longitude=st35['lon'][0],zoom=11,pitch=50)), layers = pdk.layer('ScatterplotLayer', data = st35))
 
 
 
