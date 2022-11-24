@@ -19,7 +19,7 @@ with st.form(key='Form2'):
 
 col1, col2 = st.columns([3,2])
 with col1:
-    df2 = pd.DataFrame({'Lat': [42.187,34.355], 'Lon' : [123.71945,130.502]})
+    df2 = pd.DataFrame({'lat': [42.187,34.355], 'lon' : [123.71945,130.502]})
     st.map(df2)
 with col2:
     image = Image.open(cultiva_selectbox + '.jpg')
