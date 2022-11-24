@@ -36,7 +36,7 @@ with col1:
             'ScatterplotLayer',
             data=st35,
             get_position='[lon, lat]',
-            get_color='[0]',
+            get_color='[0, 100, 0, 160]',
             get_radius=1500,
         ),
     ],
