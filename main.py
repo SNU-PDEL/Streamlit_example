@@ -160,7 +160,7 @@ with col1:
     initial_view_state=pdk.ViewState(
         latitude=st35['lat'][0],
         longitude=st35['lon'][0],
-        zoom=7,
+        zoom=6,
         pitch=10,
     ),
     layers=[
@@ -169,7 +169,7 @@ with col1:
             data=st35,
             get_position='[lon, lat]',
             get_color=get_color,
-            get_radius=3000,
+            get_radius=5000,
         ),
     ],
     ))
