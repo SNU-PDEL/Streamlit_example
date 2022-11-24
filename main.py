@@ -193,8 +193,10 @@ with col1_1:
         colors = ['yellow','white']
     elif data_frame4['total_score3'] >= 25:
         colors = ['orange','white']
-    else:
+    elif data_frame4['total_score3'] >= 0:
         colors = ['red','white']
+    else:
+        colors = ['black','white']
     ax.pie([data_frame4['total_score3'],data_frame4['nonscore']],colors = colors, explode = (0.05,0.05))
     centre_circle = plt.Circle((0, 0), 0.84, fc='white')
     fig.gca().add_artist(centre_circle)
