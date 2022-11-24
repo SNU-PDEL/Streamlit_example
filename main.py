@@ -22,7 +22,8 @@ col1, col2 = st.columns([3,2])
 with col1:
     st35 = st3[st3['kEname'] == '속초'][['Lat','Lon']]
     st35.columns = ['lat','lon']
-    st.map(st35, zoom = 3)
+    st35 = st35.round(2)
+    st.map(st35)
 with col2:
     image = Image.open(cultiva_selectbox + '.jpg')
     image2 = Image.open(cultiva_selectbox + '2.jpg')
