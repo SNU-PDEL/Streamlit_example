@@ -158,8 +158,8 @@ with col1:
     st.pydeck_chart(pdk.Deck(
     map_style=None,
     initial_view_state=pdk.ViewState(
-        latitude=st35['lat'][0],
-        longitude=st35['lon'][0],
+        latitude=30.5,
+        longitude=328,
         zoom=6,
         pitch=10,
     ),
