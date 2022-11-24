@@ -10,23 +10,16 @@ import matplotlib.dates as mdates
 import pydeck as pdk   
 
 
-st.title('Visualization homework')
+st.title('Visualization Project')
+st.header('Crop-suited location based on future climate data')
+st.subheder('서울대학교 농생명공학부 이노현')
+st.subheder('서울대학교 농생명공학부 정원재')
 yearslider = st.sidebar.slider('년도',1981,2100)
 with st.form(key='Form2'):
     with st.sidebar:
         location_selectbox = st.selectbox('시군구',('강릉','강화','거제','거창','고흥','광주','구미','군산','금산','남원','남해','대관령','대구','대전','목포','문경','밀양','보령','보은','부산','부안','부여','산청','서귀포','서산','서울','성산','속초','수원','양평','여수','영덕','영주','영천','완도','울산','울진','원주','의성','이천','인제','인천','임실','장흥','전주','정읍','제주','제천','진주','천안','청주','추풍령','춘천','충주','통영','포항','합천','해남','홍천'))
         cultiva_selectbox = st.selectbox('작물',('단감','당귀','배','복숭아','사과','인삼','천궁','포도','기타'))
         submitted2 = st.form_submit_button(label = 'submit')
-
-
-
-
-
-
-
-
-
-
 
 
 st3 = pd.read_csv('st3.csv')
