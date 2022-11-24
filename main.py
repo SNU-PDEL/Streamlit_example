@@ -57,14 +57,25 @@ elif (max2012 <= fruit2_1) & (min2012 >= fruit2_2):
 elif (max2012 >= fruit2_1) & (min2012 >= fruit2_1):
     first_score = 0
     total_score = first_score
+elif (max2012 <= fruit2_2) & (min2012 <= fruit2_2):
+    first_score = 0
+    total_score = first_score
 elif (max2012<=fruit2_1) & (max2012>=fruit2_2) & (min2012<= fruit2_2):
     first_score = (max2012-fruit2_2)/(fruit2_1 - fruit2_2)*100
     nansu1 = np.exp(abs(min2012 - fruit2_2)/10)
-    total_score = first_score - nansu1
+    if nansu1 >= first_score:
+        tscore = 0
+    else:
+        tscore = first_score - nansu1
+    total_score3 = tscore
 else:
     first_score = (fruit2_1-min2012)/(fruit2_1 - fruit2_2)*100
     nansu1 = np.exp(abs(max2012 - fruit2_1)/10) 
-    total_score = first_score - nansu1
+    if nansu1 >= first_score
+        tscore = 0
+    else:
+        tscore = first_score - nansu1
+    total_score3=tscore
 
 ####################################
 st3 = pd.read_csv('st3.csv')
@@ -308,32 +319,14 @@ st.pyplot(fig)
 
 st.subheader('')
 st.subheader(cultiva_selectbox + '의 육묘 적정 기온구간과 ' + location_selectbox+'의 기온구간의 차이')   
-heatmap = pd.read_csv('육묘_' + cultiva_selectbox + '_' + location_selectbox + '.csv')
-heatmap['cal_total'] = heatmap['cal_tmax'] + heatmap['cal_tmin']
-heat = []
-for i in range(len(heatmap)):
-    heat.append(str(heatmap['Mon'][i]) +'/'+ str(heatmap['Day'][i]))
-heatmap['date'] = heat
-heat_pivot = heatmap.pivot(['Year'],['date'],['cal_total'])
+heatmap = pd.read_csv('속초_단감.csv')
+
 fig, ax = plt.subplots(figsize=(24, 20))
 im = ax.matshow(heat_pivot, cmap='Reds')
 ax.grid(False)
 fig.colorbar(im)
 st.pyplot(fig)
 
-st.subheader('')
-st.subheader(cultiva_selectbox + '의 생육 적정 기온구간과 ' + location_selectbox+'의 기온구간의 차이')   
-heatmap2 = pd.read_csv('생육_' + cultiva_selectbox + '_' + location_selectbox + '.csv') 
-heatmap2['cal_total'] = heatmap2['cal_tmax'] + heatmap2['cal_tmin']
-heat2 = []
-for i in range(len(heatmap2)):
-    heat2.append(str(heatmap2['Mon'][i]) +'/'+ str(heatmap2['Day'][i]))
-heatmap2['date'] = heat2
-heat_pivot2 = heatmap2.pivot(['Year'],['date'],['cal_total'])
-fig, ax = plt.subplots(figsize=(24, 20))
-im = ax.matshow(heat_pivot2, cmap='Blues')
 #ax.set_xticks(np.arange(len(da58.keys())), labels=da58.keys(), size = 25)
 #ax.set_yticks(np.arange(len(year)), labels=year, size = 25)
-ax.grid(False)
-fig.colorbar(im)
-st.pyplot(fig)
+
