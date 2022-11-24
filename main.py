@@ -11,7 +11,7 @@ import pydeck as pdk
 
 
 st.title('Visualization Project')
-st.header('기후 시나리오에 따른 시군구별 작물 생육 적합도')
+st.subheader('기후 시나리오에 따른 시군구별 작물 생육 적합도')
 
 
 yearslider = st.sidebar.slider('년도',1981,2100)
