@@ -67,7 +67,7 @@ elif (max2012<=fruit2_1) & (max2012>=fruit2_2) & (min2012<= fruit2_2):
         tscore = 0
     else:
         tscore = first_score - nansu1
-    total_score3 = tscore
+    total_score = tscore
 else:
     first_score = (fruit2_1-min2012)/(fruit2_1 - fruit2_2)*100
     nansu1 = np.exp(abs(max2012 - fruit2_1)/10) 
@@ -75,7 +75,7 @@ else:
         tscore = 0
     else:
         tscore = first_score - nansu1
-    total_score3=tscore
+    total_score=tscore
 
 ####################################
 st3 = pd.read_csv('st3.csv')
