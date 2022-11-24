@@ -147,8 +147,10 @@ elif data_frame4['total_score3'] >= 45:
     get_color='[50, 50, 0, 160]'
 elif data_frame4['total_score3'] >= 25:
     get_color='[255, 140, 0, 160]'
-else:
+elif data_frame4['total_score3'] > 0:
     get_color='[100, 0, 0, 160]'
+else :
+    get_color='[0, 0, 0, 160]'
 with col1:
     st35 = st3[st3['kEname'] == location_selectbox][['Lat','Lon']]
     st35.columns = ['lat','lon']
