@@ -256,8 +256,6 @@ plt.axhline(70, 0.05, 0.95, color='green', linestyle='--', linewidth=1)
 plt.axhline(45, 0.05, 0.95, color='yellow', linestyle='--', linewidth=1)
 plt.axhline(25, 0.05, 0.95, color='orange', linestyle='--', linewidth=1)
 plt.axhline(0, 0.05, 0.95, color='red', linestyle='--', linewidth=1)
-plt.fill_between(x = dfdf1.index, y1= plt.axhline(90, 0.05, 0.95, color='blue', linestyle='--', linewidth=1),y2 =plt.axhline(70, 0.05, 0.95, color='green', linestyle='--', linewidth=1),interpolate= True,  facecolor = 'blue', alpha = 0.5)
-
 plt.xticks(range(0,121,10), range(1980,2101,10))
 plt.ylabel('Total Score')
 st.pyplot(fig)
