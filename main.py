@@ -247,6 +247,20 @@ with col1_2:
 #plt.plot(df4['tmin'], color = 'blue')
 #plt.legend(['tmax','tmin'])
 #st.pyplot(fig)
+st.subheader('AA')
+dfdf1 = pd.read_csv(cultiva_selectbox + '_총점.csv')
+fig = plt.figure(5)
+plt.plot(dfdf1['강릉'])
+st.pyplot(fig)
+
+
+
+
+
+
+
+
+
 
 st.subheader(cultiva_selectbox + '의 적정 연간평균 기온과 ' + location_selectbox + '의 연간 기온 비교')
 st3 = pd.read_csv('st3.csv')
