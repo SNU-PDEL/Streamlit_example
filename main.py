@@ -251,7 +251,7 @@ st.subheader('AA')
 dfdf1 = pd.read_csv(cultiva_selectbox + '_총점.csv')
 fig = plt.figure(figsize = (11,4))
 plt.plot(dfdf1[location_selectbox])
-plt.xticks(dfdf1.index, range(1981,2101,10))
+plt.xticks(range(0,120,10), range(1981,2101,10))
 st.pyplot(fig)
 
 
