@@ -247,7 +247,7 @@ with col1_2:
 #plt.plot(df4['tmin'], color = 'blue')
 #plt.legend(['tmax','tmin'])
 #st.pyplot(fig)
-st.subheader('AA')
+st.subheader('연도에 따른 ' + location_selectbox + '에서의 ' + cultiva_selectbox + ' 재배 점수')
 dfdf1 = pd.read_csv(cultiva_selectbox + '_총점.csv')
 fig = plt.figure(figsize = (11,4))
 plt.plot(dfdf1[location_selectbox], color = 'black')
