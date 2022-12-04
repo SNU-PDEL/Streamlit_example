@@ -249,8 +249,8 @@ with col1_2:
 #st.pyplot(fig)
 st.subheader('AA')
 dfdf1 = pd.read_csv(cultiva_selectbox + '_총점.csv')
-fig = plt.figure(5)
-plt.plot(dfdf1['강릉'])
+fig = plt.figure(figsize = (11,4))
+plt.plot(dfdf1[location_selectbox])
 st.pyplot(fig)
 
 
