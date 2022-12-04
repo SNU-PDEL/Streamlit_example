@@ -257,6 +257,7 @@ plt.axhline(45, 0, 1, color='yellow', linestyle='--', linewidth=1)
 plt.axhline(25, 0, 1, color='orange', linestyle='--', linewidth=1)
 plt.axhline(0, 0, 1, color='red', linestyle='--', linewidth=1)
 plt.xticks(range(0,121,10), range(1980,2101,10))
+plt.ylabel('Total Score')
 st.pyplot(fig)
 
 
