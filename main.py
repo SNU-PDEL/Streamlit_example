@@ -295,36 +295,35 @@ plt.fill_between(x = df2.index, y1= df2['연평균 최고기온'],y2 =df2['tmin'
 plt.fill_between(x = df2.index, y1= df2['연평균 최저기온'],y2 =df2['tmax'], where = df2['tmax'] < df2['연평균 최저기온'],interpolate= True,  facecolor = 'white', alpha = 1)
 st.pyplot(fig)
 
-st.subheader(cultiva_selectbox + '의 적정 연간평균 기온과 ' + location_selectbox + '의 특정 연도 기온 비교')
-st3 = pd.read_csv('st3.csv')
-df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'_new2.csv').values[0])
-df2_1 = df[df['Year']==yearslider]
-df2_1 = df2_1.reset_index()
-fruit2 = pd.read_csv('fruit2.csv', encoding = 'cp949')
-fruit2_1 = fruit2[fruit2['작물명']== cultiva_selectbox]['연평균 최저기온']
-fruit2_2 = fruit2[fruit2['작물명']== cultiva_selectbox]['연평균 최고기온']
-tavgmin = []
-tavgmax = []
-for i in range(len(df2_1)):
-    tavgmin.append(fruit2_1.values[0])
-    tavgmax.append(fruit2_2.values[0])
-df2_2 = pd.concat([df2_1,pd.Series(tavgmin).rename('연평균 최저기온'),pd.Series(tavgmax).rename('연평균 최고기온')],axis = 1)
-dfodf = []
-for i in range(len(df2_2)):    
-    dfodf.append(str(df2_2['Mon'][i]) + '/'+str(df2_2['Day'][i]))
-df2_2['date'] = dfodf
-fig = plt.figure(figsize=(11,4))
-plt.plot(df2_2['tmax'], color = 'red')
-plt.plot(df2_2['tmin'], color = 'blue')
-plt.plot(df2_2['연평균 최저기온'], color = 'lightgray')
-plt.plot(df2_2['연평균 최고기온'], color = 'lightgray')
-plt.xticks(np.arange(0,365,15), labels = ['Jan','','Feb','','Mar','','Apr','','May','','Jun','','Jul','','Aug','','Sep','','Oct','','Nov','','Dec','',''])
-plt.fill_between(x = df2_2.index, y1= df2_2['연평균 최저기온'],y2 =df2_2['tmin'], where = df2_2['tmin'] < df2_2['연평균 최저기온'],interpolate= True,  facecolor = 'blue', alpha = 0.5)
-plt.fill_between(x = df2_2.index, y1= df2_2['연평균 최고기온'],y2 =df2_2['tmax'], where = df2_2['tmax'] > df2_2['연평균 최고기온'],interpolate= True,  facecolor = 'red', alpha = 0.5)
-plt.fill_between(x = df2_2.index, y1= df2_2['연평균 최고기온'],y2 =df2_2['tmin'], where = df2_2['tmin'] > df2_2['연평균 최고기온'],interpolate= True,  facecolor = 'white', alpha = 1)
-plt.fill_between(x = df2_2.index, y1= df2_2['연평균 최저기온'],y2 =df2_2['tmax'], where = df2_2['tmax'] < df2_2['연평균 최저기온'],interpolate= True,  facecolor = 'white', alpha = 1)
-st.pyplot(fig)
-
+# st.subheader(cultiva_selectbox + '의 적정 연간평균 기온과 ' + location_selectbox + '의 특정 연도 기온 비교')
+# st3 = pd.read_csv('st3.csv')
+# df = pd.read_csv((st3[st3['kEname']==location_selectbox]['number']+'_new2.csv').values[0])
+# df2_1 = df[df['Year']==yearslider]
+# df2_1 = df2_1.reset_index()
+# fruit2 = pd.read_csv('fruit2.csv', encoding = 'cp949')
+# fruit2_1 = fruit2[fruit2['작물명']== cultiva_selectbox]['연평균 최저기온']
+# fruit2_2 = fruit2[fruit2['작물명']== cultiva_selectbox]['연평균 최고기온']
+# tavgmin = []
+# tavgmax = []
+# for i in range(len(df2_1)):
+#     tavgmin.append(fruit2_1.values[0])
+#     tavgmax.append(fruit2_2.values[0])
+# df2_2 = pd.concat([df2_1,pd.Series(tavgmin).rename('연평균 최저기온'),pd.Series(tavgmax).rename('연평균 최고기온')],axis = 1)
+# dfodf = []
+# for i in range(len(df2_2)):    
+#     dfodf.append(str(df2_2['Mon'][i]) + '/'+str(df2_2['Day'][i]))
+# df2_2['date'] = dfodf
+# fig = plt.figure(figsize=(11,4))
+# plt.plot(df2_2['tmax'], color = 'red')
+# plt.plot(df2_2['tmin'], color = 'blue')
+# plt.plot(df2_2['연평균 최저기온'], color = 'lightgray')
+# plt.plot(df2_2['연평균 최고기온'], color = 'lightgray')
+# plt.xticks(np.arange(0,365,15), labels = ['Jan','','Feb','','Mar','','Apr','','May','','Jun','','Jul','','Aug','','Sep','','Oct','','Nov','','Dec','',''])
+# plt.fill_between(x = df2_2.index, y1= df2_2['연평균 최저기온'],y2 =df2_2['tmin'], where = df2_2['tmin'] < df2_2['연평균 최저기온'],interpolate= True,  facecolor = 'blue', alpha = 0.5)
+# plt.fill_between(x = df2_2.index, y1= df2_2['연평균 최고기온'],y2 =df2_2['tmax'], where = df2_2['tmax'] > df2_2['연평균 최고기온'],interpolate= True,  facecolor = 'red', alpha = 0.5)
+# plt.fill_between(x = df2_2.index, y1= df2_2['연평균 최고기온'],y2 =df2_2['tmin'], where = df2_2['tmin'] > df2_2['연평균 최고기온'],interpolate= True,  facecolor = 'white', alpha = 1)
+# plt.fill_between(x = df2_2.index, y1= df2_2['연평균 최저기온'],y2 =df2_2['tmax'], where = df2_2['tmax'] < df2_2['연평균 최저기온'],interpolate= True,  facecolor = 'white', alpha = 1)
+# st.pyplot(fig)
 
 ################################################################
 st.subheader('')
