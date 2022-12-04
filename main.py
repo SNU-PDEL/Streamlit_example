@@ -251,7 +251,7 @@ st.subheader('연도에 따른 ' + location_selectbox + '에서의 ' + cultiva_s
 dfdf1 = pd.read_csv(cultiva_selectbox + '_총점.csv')
 fig = plt.figure(figsize = (11,4))
 plt.plot(dfdf1[location_selectbox], color = 'black')
-plt.axhline(90, 0, 1, color='blue', linestyle='--', linewidth=1)
+plt.axhline(90, 0.05, 0.95, color='blue', linestyle='--', linewidth=1)
 plt.axhline(70, 0, 1, color='green', linestyle='--', linewidth=1)
 plt.axhline(45, 0, 1, color='yellow', linestyle='--', linewidth=1)
 plt.axhline(25, 0, 1, color='orange', linestyle='--', linewidth=1)
